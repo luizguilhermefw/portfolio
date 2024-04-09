@@ -64,6 +64,18 @@ h1:hover, h2:hover {
     transition: text-shadow 0.3s ease; /* Adiciona uma transição suave */
 }
 
+#contador-astros {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: "Fira Code", monospace;
+    z-index: 9999;
+}
 
 
 main {
@@ -131,6 +143,11 @@ footer {
     margin-right: 10px; /* Espaçamento entre o ícone e o texto */
 }
 
+.menu li::before {
+    margin-right: 10px;
+}
+
+
 .menu a {
     color: white; /* Cor do texto */
     text-decoration: none; /* Remover sublinhado */
@@ -159,14 +176,14 @@ footer {
     background-color:  rgba(0, 0, 0, 0.2);;
 }
 
-.skills-list {
+.skills-soft-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 30px;
 }
 
-.skill {
+.skill-soft {
     width: 300px;
     height: 250px;
     padding: 20px;
@@ -177,24 +194,98 @@ footer {
     border-radius: 8px;
     text-align: justify;
     word-wrap: break-word;
+    
 }
 
-.skill:hover {
+.skill-soft:hover {
     background-color: rgba(0, 0, 0, 0.1); /* Adiciona um efeito de hover */
     transform: scale(1.1); /* Ao passar o mouse, aumenta a escala para 1.1 */
     border-color: #ff00ff;
 }
 
-.skill h3 {
+.skill-soft h3 {
     color: white;
     font-size: 1.5rem;
     margin-bottom: 10px;
     text-align: center;
 }
 
-.skill p {
+.skill-soft p {
     color: turquoise;
     font-size: 1rem;
+}
+
+.skill-soft-category {
+    margin-bottom: 30px;
+}
+
+.skill-soft-category h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.skill-hard {
+    width: 200px; /* Reduz a largura da caixa */
+    height: 150px; /* Reduz a altura da caixa */
+    padding: 20px;
+    margin: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid #1abc9c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    word-wrap: break-word;
+    display: flex; /* Adiciona flex para centralizar o conteúdo */
+    flex-direction: column; /* Coloca os elementos em coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+}
+
+.skill-hard:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+    border-color: #ff00ff;
+}
+
+#hard-skills h2 {
+    text-align: center;
+}
+
+.skill-hard h4 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.skill-hard p {
+    color: turquoise;
+    font-size: 1rem;
+}
+
+.skill-hard-category {
+    margin-bottom: 30px;
+}
+
+.skill-hard-category h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#icon-hard {
+    font-size: 75px;
+    color: turquoise;
+    transition: transform 0.3s ease, color 0.5s ease; /* Combine as transições em uma única linha */
+}
+
+#icon-hard:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+    color: #ff00ff;
 }
 
 
@@ -219,4 +310,6 @@ footer {
     color: #ff00ff;
 }
 
-
+@media screen and (max-width: 1020px) {
+    
+}

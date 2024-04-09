@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <title>Luiz Guilherme Fernandes Wagner - Portfólio</title>
@@ -19,7 +18,7 @@
     <header>
         <img class="profile-img" src="./images/perfil-luiz.jpg" alt="foto perfil do Luiz">
         <h1>Luiz Guilherme Fernandes Wagner</h1>
-        <h2>Developer Fullstack</h2>
+        <h2>&lt;/Desenvolvedor Fullstack&gt;</h2>
             
         <div class="social-icons">
             <a href="https://github.com/eziul" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -27,14 +26,17 @@
             <a href="mailto:ziulprof@gmail.com" aria-label="E-mail"><i class="fas fa-envelope"></i></a>
             <a href="https://wa.me/45991335359" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>   
+        <div id="contador-astros">Contagem atualizada de astros identificados: <span id="contador-numero">0</span></div>
+
     </header>
     <main>
         <nav class="menu">
             <ul>
-                <li><i class="fas fa-telescope"></i><a href="#sobre-mim">Sobre mim</a></li>
-                <li><i class="fas fa-telescope"></i><a href="#soft-skills">Soft Skills</a></li>
-                <li><i class="fas fa-telescope"></i><a href="#hard-skills">Hard Skills</a></li>
-                <li><i class="fas fa-telescope"></i><a href="#projetos">Projetos</a></li>
+                <li><i class="fa-solid fa-user-astronaut"></i><a href="#sobre-mim">Sobre mim</a></li>
+                <li><i class="fa-solid fa-brain"></i><a href="#soft-skills">Minhas Soft Skills</a></li>
+                <li><i class="fa-solid fa-user-gear"></i></i><a href="#hard-skills">Minhas Hard Skills</a></li>
+                <li><i class="fa-solid fa-laptop-code"></i><a href="#hard-skills">Meus serviços contratáveis</a></li>
+                <li><i class="fa-solid fa-code"></i><a href="#projetos">Meus Projetos</a></li>
             </ul>
             
         </nav>
@@ -50,42 +52,80 @@
     
         <section id="soft-skills" class="content">
             <h2>Soft Skills</h2>
-            <div class="skills-list">
-                <div class="skill">
+            <div class="skills-soft-list">
+                <div class="skill-soft">
                     <h3>Comunicação eficaz</h3>
                     <p>Capacidade de expressar ideias de forma clara e concisa, facilitando a colaboração com colegas de equipe e clientes.</p>
                 </div>
-                <div class="skill">
+                <div class="skill-soft">
                     <h3>Trabalho em equipe</h3>
                     <p>Habilidade de trabalhar de forma colaborativa em equipe, contribuindo com suas habilidades e ideias para alcançar objetivos comuns.</p>
                 </div>
-                <div class="skill">
+                <div class="skill-soft">
                     <h3>Adaptabilidade</h3>
                     <p>Capacidade de se adaptar a novos desafios e ambientes de trabalho, lidando de forma eficaz com mudanças e imprevistos.</p>
                 </div>
-                <div class="skill">
+                <div class="skill-soft">
                     <h3>Resolução de problemas</h3>
                     <p>Capacidade de identificar, analisar e resolver problemas de forma eficaz, buscando soluções criativas e inovadoras.</p>
                 </div>
-                <div class="skill">
+                <div class="skill-soft">
                     <h3>Proatividade</h3>
                     <p>Iniciativa para buscar novas oportunidades, assumir responsabilidades e agir antecipadamente para evitar problemas.</p>
                 </div>
-                <div class="skill">
+                <div class="skill-soft">
                     <h3>Organização e gerenciamento de tempo</h3>
                     <p> Capacidade de organizar tarefas, estabelecer prioridades e gerenciar o tempo de forma eficaz para cumprir prazos e objetivos.</p>
                 </div>
-                <div class="skill">
+                <div class="skill-soft">
                     <h3>Pensamento crítico</h3>
                     <p>Habilidade de analisar informações de forma crítica, avaliando diferentes perspectivas e tomando decisões fundamentadas.</p>
                 </div>
-                <div class="skill">
+                <div class="skill-soft">
                     <h3>Resiliência</h3>
                     <p>Capacidade de enfrentar desafios e adversidades com determinação e otimismo, buscando aprender e crescer com as experiências.</p>
                 </div>
         </section>
     
-        <!-- Outras seções -->
+        <section id="hard-skills" class="content">
+            <h2>Hard Skills</h2>
+            <div class="skills-soft-list">
+                <div class="skill-hard-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-hard">
+                        <div><i id="icon-hard" class="fa-brands fa-html5"></i></div>
+                        <h4>HTML</h4>                      
+                    </div>
+                    <div class="skill-hard">
+                        <div><i id="icon-hard" class="fa-brands fa-css3"></i></i></div>
+                        <h4>CSS</h4>
+                    </div>
+                    <div class="skill-hard">
+                        <div><i id="icon-hard" class="fa-brands fa-js"></i></div>
+                        <h4>JavaScript</h4>
+                    </div>
+                    <div class="skill-hard">
+                        <div><i id="icon-hard" class="fa-brands fa-angular"></i></div>
+                        <h4>Angular</h4>
+                    </div>
+                </div>
+                <div class="skill-hard-category">
+                    <h3>Backend</h3>
+                    <div class="skill-hard">
+                        <div><i id="icon-hard" class="fa-brands fa-java"></i></div>
+                        <h4>Java com Spring</h4>
+                    </div>
+                    <div class="skill-hard">
+                        <div><i id="icon-hard" class="fa-brands fa-python"></i></div>
+                        </i><h4>Python com Flask</h4>
+                    </div>
+                    <div class="skill-hard">
+                        <div><i id="icon-hard" class="fa-solid fa-database"></i></div>
+                        <h4>Banco de dados SQL e NoSQL</h4>
+                    </div>
+                </div>
+            </div>
+        </section>   
     
     </main>
 
