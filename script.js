@@ -101,3 +101,27 @@ function subirTopo() {
     });
 }
 
+const username = 'eziul';
+const repoName = 'game-man-vs-dino';
+const url = `https://api.github.com/repos/${username}/${repoName}`;
+
+fetch(url)
+  .then(response => response.json())
+  .then(repo => {
+    const projectsContainer = document.getElementById('repos-container');
+    const repoElement = document.createElement('div');
+    repoElement.classList.add('repo-box');
+    repoElement.innerHTML = `
+        <h3>${repo.name}</h3>
+        <p>${repo.description || 'Descrição não disponível'}</p>
+        <a href="${repo.html_url}" target="_blank" class="github-link"><i id="icon-projetos" class="fab fa-github"></i><p>GitHub</p></a>
+      `;
+    projectsContainer.appendChild(repoElement);
+  })
+  .catch(error => console.error('Erro ao carregar o repositório do GitHub:', error));
+
+
+
+
+
+

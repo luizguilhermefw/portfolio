@@ -288,6 +288,75 @@ footer {
     color: #ff00ff;
 }
 
+#projetos {
+    padding: 50px 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.projetos-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.repo-box {
+    width: 250px;
+    height: 250px;
+    padding: 20px;
+    margin: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid #1abc9c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.repo-box:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+    border-color: #ff00ff;
+}
+
+.repo-box h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.repo-box p {
+    color: turquoise;
+    font-size: 1rem;
+}
+
+.github-link {
+    color: turquoise;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+#icon-projetos {
+    font-size: 45px;
+    color: turquoise;
+    transition: transform 0.3s ease, color 0.5s ease; /* Combine as transições em uma única linha */
+}
+
+#icon-projetos:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+    color: #ff00ff;
+}
+
+.github-link:hover {
+    text-decoration: underline;
+}
+
 
 /* Botão subir ao topo */
 #btnTopo {
@@ -308,6 +377,10 @@ footer {
     background-color: rgba(0, 0, 0, 0.1); /* Adiciona um efeito de hover */
     transform: scale(1.1); /* Ao passar o mouse, aumenta a escala para 1.1 */
     color: #ff00ff;
+}
+
+#topo {
+    font-size: 15px;
 }
 
 @media screen and (max-width: 1020px) {
