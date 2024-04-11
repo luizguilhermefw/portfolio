@@ -114,11 +114,12 @@ fetch(url)
     repoElement.innerHTML = `
         <h3>${repo.name}</h3>
         <p>${repo.description || 'Descrição não disponível'}</p>
-        <a href="${repo.html_url}" target="_blank" class="github-link"><i id="icon-projetos" class="fab fa-github"></i><p>GitHub</p></a>
-      `;
+        <a href="${repo.html_url}" target="_blank" class="github-link"><i id="icon-projetos" class="fab fa-github"></i></a>
+        <a href="https://eziul.github.io/game-man-vs-dino/" target="_blank" class="github-game"><i class="fas fa-gamepad"></i> <span>Jogar</span></a>`;
     projectsContainer.appendChild(repoElement);
   })
   .catch(error => console.error('Erro ao carregar o repositório do GitHub:', error));
+
 
 
 
