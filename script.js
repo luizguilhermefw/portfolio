@@ -35,18 +35,6 @@ function moveStars() {
 
 addStars();
 
-// let contador = 0;
-// const contadorElemento = document.getElementById("contador-numero");
-
-// function atualizarContador() {
-//     contador++;
-//     contadorElemento.textContent = contador;
-// }
-
-// // Chamada inicial para iniciar o contador
-// atualizarContador();
-
-
 document.querySelectorAll('.menu ul li a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();

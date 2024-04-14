@@ -64,20 +64,6 @@ h1:hover, h2:hover {
     transition: text-shadow 0.3s ease; /* Adiciona uma transição suave */
 }
 
-#contador-astros {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-family: "Fira Code", monospace;
-    z-index: 9999;
-}
-
-
 main {
     padding: 50px 20px;
     padding-bottom: 60px; /* ou outro valor que garanta que o conteúdo não seja cortado */
