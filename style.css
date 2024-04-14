@@ -288,6 +288,10 @@ footer {
     color: #ff00ff;
 }
 
+#servicos h2 {
+    text-align: center;
+}
+
 #projetos {
     padding: 50px 20px;
     background-color: rgba(0, 0, 0, 0.2);
