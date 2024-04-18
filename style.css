@@ -1,3 +1,4 @@
+/* Define a fonte padrão para o corpo do documento */
 body {
     font-family: "Fira Code", monospace;
     font-optical-sizing: auto;
@@ -6,9 +7,10 @@ body {
     color: white;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Impede a rolagem horizontal */
 }
 
+/* Define o estilo do fundo animado de estrelas */
 .background {
     position: fixed;
     top: 0;
@@ -21,6 +23,7 @@ body {
     overflow: hidden;
 }
 
+/* Define o estilo das estrelas animadas */
 .star {
     position: absolute;
     width: 1px;
@@ -29,6 +32,7 @@ body {
     animation: moveStars 10s linear infinite;
 }
 
+/* Animação das estrelas */
 @keyframes moveStars {
     from {
         transform: translateZ(0);
@@ -38,37 +42,43 @@ body {
     }
 }
 
+/* Define o estilo do cabeçalho */
 header {
     text-align: center;
     padding: 20px 0;
 }
 
+/* Define o estilo da imagem de perfil */
 .profile-img {
     border-radius: 50%;
     border: 3px solid #0ff;
-    width: 150px; /* Ajuste o tamanho da imagem conforme necessário */
-    height: 150px; /* Ajuste o tamanho da imagem conforme necessário */
-    object-fit: cover; /* Para garantir que a imagem cubra o espaço da maneira correta */
-    margin-bottom: 10px; /* Espaçamento opcional entre a imagem e o texto abaixo */
-    transition: transform 0.3s ease; /* Adiciona uma transição suave de 0.3 segundos */
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
     transition: border-color 0.5s ease;
 }
 
+/* Define o efeito de hover da imagem de perfil */
 .profile-img:hover {
-    transform: scale(1.1); /* Ao passar o mouse, aumenta a escala para 1.1 */
+    transform: scale(1.1);
     border-color: #ff00ff;
 }
 
+/* Define o efeito de text-shadow para títulos quando hover */
 h1:hover, h2:hover {
-    text-shadow: 0 0 10px white; /* Adiciona um brilho ao texto */
-    transition: text-shadow 0.3s ease; /* Adiciona uma transição suave */
+    text-shadow: 0 0 10px white;
+    transition: text-shadow 0.3s ease;
 }
 
+/* Define o estilo da seção principal */
 main {
     padding: 50px 20px;
-    padding-bottom: 60px; /* ou outro valor que garanta que o conteúdo não seja cortado */
+    padding-bottom: 60px;
 }
 
+/* Define o estilo do rodapé */
 footer {
     position: fixed;
     bottom: 0;
@@ -80,7 +90,8 @@ footer {
     color: white;
 }
 
-.social-icons{
+/* Define o estilo dos ícones das redes sociais */
+.social-icons {
     margin-top: 10px;
 }
 
@@ -100,10 +111,11 @@ footer {
     margin-right: 10px;
 }
 
+/* Define o estilo do menu de navegação */
 .menu {
-    background-color: rgba(0, 0, 0, 0.2); /* Fundo transparente */
-    border-radius: 10px; /* Borda arredondada */
-    padding: 10px; /* Espaçamento interno */
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .menu a:hover {
@@ -121,30 +133,30 @@ footer {
     list-style-type: none;
     color: white;
     margin-bottom: 20px;
-    display: flex; /* Para alinhar o ícone e o texto na mesma linha */
-    align-items: center; /* Para alinhar verticalmente o ícone e o texto */
+    display: flex;
+    align-items: center;
 }
 
 .menu li i {
-    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+    margin-right: 10px;
 }
 
 .menu li::before {
     margin-right: 10px;
 }
 
-
 .menu a {
-    color: white; /* Cor do texto */
-    text-decoration: none; /* Remover sublinhado */
+    color: white;
+    text-decoration: none;
 }
 
+/* Define o estilo dos conteúdos ocultáveis */
 .content {
-    display: none; /* Ocultar o conteúdo por padrão */
-    background-color: rgba(0, 0, 0, 0.2); /* Fundo transparente */
-    border-radius: 10px; /* Borda arredondada */
-    padding: 20px; /* Espaçamento interno */
-    margin-top: 10px; /* Espaçamento superior */
+    display: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px;
     text-align: justify;
     max-width: 800px;
     margin-left: auto;
@@ -152,16 +164,17 @@ footer {
 }
 
 .content.active {
-    display: block; /* Exibir o conteúdo quando estiver ativo */
+    display: block;
 }
 
-/* Estilos para a seção de Soft Skills */
+/* Define o estilo da seção de soft skills */
 #soft-skills {
     padding: 50px 0;
     text-align: center;
-    background-color:  rgba(0, 0, 0, 0.2);;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
+/* Define o estilo da lista de soft skills */
 .skills-soft-list {
     display: flex;
     flex-wrap: wrap;
@@ -169,23 +182,24 @@ footer {
     margin-top: 30px;
 }
 
+/* Define o estilo das caixas de soft skills */
 .skill-soft {
     width: 300px;
     height: 250px;
     padding: 20px;
     margin: 20px;
-    background-color:  rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     border: 1px solid #1abc9c;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     text-align: justify;
     word-wrap: break-word;
-    
 }
 
+/* Define o efeito de hover das caixas de soft skills */
 .skill-soft:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* Adiciona um efeito de hover */
-    transform: scale(1.1); /* Ao passar o mouse, aumenta a escala para 1.1 */
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
     border-color: #ff00ff;
 }
 
@@ -212,9 +226,10 @@ footer {
     text-align: center;
 }
 
+/* Define o estilo das caixas de hard skills */
 .skill-hard {
-    width: 200px; /* Reduz a largura da caixa */
-    height: 150px; /* Reduz a altura da caixa */
+    width: 200px;
+    height: 150px;
     padding: 20px;
     margin: 20px;
     background-color: rgba(0, 0, 0, 0.2);
@@ -223,12 +238,13 @@ footer {
     border-radius: 8px;
     text-align: center;
     word-wrap: break-word;
-    display: flex; /* Adiciona flex para centralizar o conteúdo */
-    flex-direction: column; /* Coloca os elementos em coluna */
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Define o efeito de hover das caixas de hard skills */
 .skill-hard:hover {
     background-color: rgba(0, 0, 0, 0.1);
     transform: scale(1.1);
@@ -262,10 +278,11 @@ footer {
     text-align: center;
 }
 
+/* Define o estilo do ícone das hard skills */
 #icon-hard {
     font-size: 75px;
     color: turquoise;
-    transition: transform 0.3s ease, color 0.5s ease; /* Combine as transições em uma única linha */
+    transition: transform 0.3s ease, color 0.5s ease;
 }
 
 #icon-hard:hover {
@@ -274,16 +291,19 @@ footer {
     color: #ff00ff;
 }
 
+/* Define o estilo da seção de serviços */
 #servicos h2 {
     text-align: center;
 }
 
+/* Define o estilo da seção de projetos */
 #projetos {
     padding: 50px 20px;
     background-color: rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
+/* Define o estilo da lista de projetos */
 .projetos-list {
     display: flex;
     flex-wrap: wrap;
@@ -291,6 +311,7 @@ footer {
     margin-top: 30px;
 }
 
+/* Define o estilo das caixas de projetos */
 .repo-box {
     width: 250px;
     height: 250px;
@@ -307,6 +328,7 @@ footer {
     align-items: center;
 }
 
+/* Define o efeito de hover das caixas de projetos */
 .repo-box:hover {
     background-color: rgba(0, 0, 0, 0.1);
     transform: scale(1.1);
@@ -324,6 +346,7 @@ footer {
     font-size: 1rem;
 }
 
+/* Define o estilo do link para o jogo no GitHub */
 .github-link {
     color: turquoise;
     font-size: 1rem;
@@ -331,10 +354,11 @@ footer {
     margin-top: 10px;
 }
 
+/* Define o estilo do ícone do GitHub nos links */
 #icon-projetos {
     font-size: 45px;
     color: turquoise;
-    transition: transform 0.3s ease, color 0.5s ease; /* Combine as transições em uma única linha */
+    transition: transform 0.3s ease, color 0.5s ease;
 }
 
 #icon-projetos:hover {
@@ -343,10 +367,7 @@ footer {
     color: #ff00ff;
 }
 
-.github-link:hover {
-    text-decoration: underline;
-}
-
+/* Define o estilo do link para jogar o jogo */
 .github-game {
     display: inline-block;
     padding: 5px 10px;
@@ -364,26 +385,23 @@ footer {
     background-color: #ff00ff;
 }
 
-
-
-/* Botão subir ao topo */
+/* Define o botão de voltar ao topo */
 #btnTopo {
     position: fixed;
     right: 20px;
     bottom: 20px;
     z-index: 9999;
-    background-color: transparent; /* Remove o fundo do botão */
-    border: none; /* Remove a borda do botão */
-    padding: 10px; /* Ajusta o padding para dar espaço ao ícone */
-    font-size: 44px; /* Ajusta o tamanho do ícone */
-    color: turquoise;
-    transition: transform 0.3s ease; /* Adiciona uma transição suave de 0.3 segundos */
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    font-size: 44px;
+    transition: transform 0.3s ease;
     transition: color 0.5s ease;
 }
 
 #btnTopo:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* Adiciona um efeito de hover */
-    transform: scale(1.1); /* Ao passar o mouse, aumenta a escala para 1.1 */
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
     color: #ff00ff;
 }
 
@@ -391,7 +409,9 @@ footer {
     font-size: 15px;
 }
 
+/* Define o estilo para telas menores que 768px */
 @media screen and (max-width: 768px) {
+    /* Altera o estilo do container e da imagem em telas menores */
     .container {
         display: block;
         background-image: none;
@@ -405,4 +425,3 @@ footer {
         margin: 2em 2em;
     }
 }
-
