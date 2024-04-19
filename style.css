@@ -395,6 +395,7 @@ footer {
     border: none;
     padding: 10px;
     font-size: 44px;
+    color: turquoise;
     transition: transform 0.3s ease;
     transition: color 0.5s ease;
 }
