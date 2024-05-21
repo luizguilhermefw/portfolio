@@ -89,24 +89,28 @@ function subirTopo() {
     });
 }
 
-const username = 'eziul';
-const repoName = 'game-man-vs-dino';
-const url = `https://api.github.com/repos/${username}/${repoName}`;
+const username = 'luizguilhermefw';
+const repoNames = ['game-man-vs-dino', 'landing-page-vet'];
+const projectsContainer = document.getElementById('repos-container');
 
-fetch(url)
-  .then(response => response.json())
-  .then(repo => {
-    const projectsContainer = document.getElementById('repos-container');
-    const repoElement = document.createElement('div');
-    repoElement.classList.add('repo-box');
-    repoElement.innerHTML = `
-        <h3>${repo.name}</h3>
-        <p>${repo.description || 'Descrição não disponível'}</p>
-        <a href="${repo.html_url}" target="_blank" class="github-link"><i id="icon-projetos" class="fab fa-github"></i></a>
-        <a href="https://eziul.github.io/game-man-vs-dino/" target="_blank" class="github-game"><i class="fas fa-gamepad"></i> <span>Jogar</span></a>`;
-    projectsContainer.appendChild(repoElement);
-  })
-  .catch(error => console.error('Erro ao carregar o repositório do GitHub:', error));
+repoNames.forEach(repoName => {
+  const url = `https://api.github.com/repos/${username}/${repoName}`;
+
+  fetch(url)
+    .then(response => response.json())
+    .then(repo => {
+      const repoElement = document.createElement('div');
+      repoElement.classList.add('repo-box');
+      repoElement.innerHTML = `
+          <h3>${repo.name}</h3>
+          <p>${repo.description || 'Descrição não disponível'}</p>
+          <a href="${repo.html_url}" target="_blank" class="github-link"><i id="icon-projetos" class="fab fa-github"></i></a>
+          <a href="${repo.html_url}" target="_blank" class="github-game"><i class="fas fa-gamepad"></i> <span>${repoName === 'game-man-vs-dino' ? 'GamePlay' : 'Visitar'}</span></a>`;
+      projectsContainer.appendChild(repoElement);
+    })
+    .catch(error => console.error('Erro ao carregar o repositório do GitHub:', error));
+});
+
 
 
 
