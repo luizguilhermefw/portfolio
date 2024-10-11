@@ -1,14 +1,14 @@
 function addStars() {
     const background = document.querySelector('.background');
     const numberOfStars = 100;
-    const starSpeed = 10; // Velocidade das estrelas em pixels por segundo
+    const starSpeed = 10; 
 
     for (let i = 0; i < numberOfStars; i++) {
         const star = document.createElement('div');
         star.classList.add('star');
         star.style.top = Math.random() * 100 + '%';
         star.style.left = Math.random() * 100 + '%';
-        star.dataset.speed = Math.random() * starSpeed + 1; // Define a velocidade da estrela
+        star.dataset.speed = Math.random() * starSpeed + 1; 
         background.appendChild(star);
     }
 
@@ -21,10 +21,10 @@ function moveStars() {
     stars.forEach(star => {
         let speed = parseFloat(star.dataset.speed);
         let x = parseFloat(star.style.left);
-        x -= speed / 10; // Dividido por 10 para ajustar a velocidade
+        x -= speed / 10; 
 
         if (x < -1) {
-            x = 101; // Reposiciona a estrela fora da tela para reiniciar o movimento
+            x = 101; 
         }
 
         star.style.left = x + '%';
@@ -50,10 +50,10 @@ document.querySelectorAll('.menu ul li a').forEach(anchor => {
                     behavior: 'smooth'
                 });
 
-                // Adiciona a classe 'active' à seção correspondente
+                
                 targetSection.classList.add('active');
 
-                // Remove a classe 'active' de todas as outras seções
+                
                 document.querySelectorAll('.content').forEach(section => {
                     if (section !== targetSection) {
                         section.classList.remove('active');
@@ -90,7 +90,7 @@ function subirTopo() {
 }
 
 const username = 'luizguilhermefw';
-const repoNames = ['game-man-vs-dino', 'landing-page-vet'];
+const repoNames = ['game-man-vs-dino', 'landing-page-vet', 'formula1']; // Adicione o novo repositório aqui
 const projectsContainer = document.getElementById('repos-container');
 
 repoNames.forEach(repoName => {
