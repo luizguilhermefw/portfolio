@@ -1,34 +1,3 @@
-body {
-    font-family: 'Fira Code', monospace;
-    margin: 0;
-    padding: 0;
-    color: var(--text-color);
-    background-color: var(--primary-color); /* Cor de fundo base */
-    overflow-x: hidden; /* Prevenir scroll horizontal */
-    line-height: 1.6;
-}
-
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2; /* Abaixo do conteúdo, mas acima do background-color do body */
-    background-color: var(--primary-color); /* Cor de fundo principal */
-}
-
-#constellation-canvas {
-    display: block; /* Remove espaço extra abaixo se for inline */
-    width: 100%;
-    height: 100%;
-}
-
-/* =============================================== */
-/* Estilos Específicos para a Página de Admin      */
-/* (admin.php)                                     */
-/* =============================================== */
-
 :root {
     --primary-color: #0a0a1f; /* Azul escuro profundo, quase preto */
     --secondary-color: #1a1a3d; /* Tom mais claro de azul escuro para contraste */
@@ -266,7 +235,9 @@ body {
 }
 
 .admin-action-buttons {
-    margin-left: auto; 
+    display: flex;
+    gap: 10px; 
+    margin-left: auto;
 }
 
 .btn-like-post {
@@ -322,6 +293,25 @@ body {
 .btn-ler-mais i {
     margin-left: 8px;
 }
+
+/* Estilos para Botões de Admin nos Cards */
+.btn-editar-post, .btn-excluir-post {
+    padding: 10px 15px;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    font-family: 'Fira Code', monospace;
+}
+.btn-editar-post { background-color: #ffc107; color: #0a0a1f; }
+.btn-excluir-post { background-color: #dc3545; color: white; }
+.btn-editar-post:hover { background-color: #e0a800; }
+.btn-excluir-post:hover { background-color: #c82333; }
+
 
 /* Sidebar */
 .blog-sidebar {

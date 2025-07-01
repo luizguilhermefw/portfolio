@@ -155,20 +155,22 @@ function createPostElement(post, isAdmin) {
     const article = document.createElement('article');
     article.classList.add('blog-post-card');
 
+    const readMoreLink = `post_individual.html?id=${post.id}`;
+
     let imageHTML = '';
     // Verifica se image_url existe, não é nula e não é uma string vazia
     if (post.image_url && post.image_url.trim() !== "") {
         imageHTML = `
             <div class="post-thumbnail">
-                <a href="#"><img src="${escapeHTML(post.image_url)}" alt="Imagem de destaque do post ${escapeHTML(post.title)}"></a>
+                <a href="${readMoreLink}" title="Ver o post: ${escapeHTML(post.title)}"><img src="${escapeHTML(post.image_url)}" alt="Imagem de destaque do post ${escapeHTML(post.title)}"></a>
             </div>
         `;
     } else {
         // Imagem placeholder se não houver image_url ou estiver vazia/nula
         imageHTML = `
             <div class="post-thumbnail">
-                <a href="#"><img src="https://via.placeholder.com/400x250/BBBBBB/808080?text=Post" alt="Imagem placeholder"></a>
-            </div>
+                <a href="${readMoreLink}" title="Ver o post: ${escapeHTML(post.title)}"><img src="https://via.placeholder.com/400x250/BBBBBB/808080?text=Post" alt="Imagem placeholder"></a>
+            </div>        
         `;
     }
 
@@ -185,16 +187,13 @@ function createPostElement(post, isAdmin) {
                     ? escapeHTML(contentText.substring(0, excerptLength)) + '...'
                     : escapeHTML(contentText);
 
-    // Usaremos o ID do post para o link "Ler Mais" no futuro
-    // Por enquanto, o link '#' não leva a lugar nenhum
-    const readMoreLink = `post_individual.html?id=${post.id}`;
     const editLink = `edit_post.php?id=${post.id}`;
     const initialLikes = post.likes_count || 0;
 
     let adminActionsHTML = '';
     if (isAdmin) {
-        adminActionsHTML = `<a href="${editLink}" class="btn-editar-post" style="margin-left: 10px; background-color: #ffc107; color: #0a0a1f;">Editar <i class="fas fa-edit"></i></a>
-                            <button data-post-id="${post.id}" class="btn-excluir-post" style="margin-left: 10px; background-color: #dc3545; color: white;">Excluir <i class="fas fa-trash"></i></button>`;
+        adminActionsHTML = `<a href="${editLink}" class="btn-editar-post">Editar <i class="fas fa-edit"></i></a>
+                            <button data-post-id="${post.id}" class="btn-excluir-post">Excluir <i class="fas fa-trash"></i></button>`;
 
     }
 
@@ -215,18 +214,13 @@ function createPostElement(post, isAdmin) {
             <div class="post-actions">
                 <a href="${readMoreLink}" class="btn-ler-mais">Ler Mais <i class="fas fa-arrow-right"></i></a>
                 ${likeButtonHTML}
-                <div class="admin-action-buttons" style="display: inline-block;">${adminActionsHTML}</div>
+                 <div class="admin-action-buttons">${adminActionsHTML}</div>
             </div>
         </div>
     `;
 
     return article;
 }
-
-// Adicionar um estilo rápido para o botão de editar, pode ser movido para o CSS principal depois
-const style = document.createElement('style');
-style.innerHTML = `.btn-editar-post, .btn-excluir-post { padding: 10px 15px; text-decoration: none; border: none; border-radius: 4px; font-weight: bold; font-size: 0.9em; display: inline-block; transition: background-color 0.3s ease, color 0.3s ease; cursor: pointer; font-family: 'Fira Code', monospace; } .btn-editar-post:hover { background-color: #e0a800 !important; } .btn-excluir-post:hover { background-color: #c82333 !important; }`;
-document.head.appendChild(style);
 
 // Função de animação da constelação (mantida como estava)
 function initConstellationCanvasAnimation(canvas) {
