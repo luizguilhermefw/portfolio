@@ -1,0 +1,205 @@
+/* =============================================== */
+/* Estilos para o Cabeçalho (Header) da Admin Page */
+/* (Reutilizando .blog-header)                     */
+/* =============================================== */
+
+.blog-header { /* Estilos copiados/adaptados do styleblog.css */
+    text-align: center;
+    padding: 40px 20px;
+    background-color: rgba(10, 10, 31, 0.5); /* Usando primary-color com alpha */
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1; /* Acima do .background */
+    border-bottom: 1px solid var(--border-color);
+}
+
+.blog-header h1 {
+    margin-top: 0;
+    color: var(--accent-color);
+    font-size: 2.5em; /* Ou o tamanho que preferir para o admin */
+}
+/* =============================================== */
+/* Estilos Gerais para o Tema Orion Nebula (Admin) */
+/* (Cores, Fontes, Background)                     */
+/* =============================================== */
+
+:root {
+    --primary-color: #0a0a1f; /* Azul escuro profundo, quase preto */
+    --secondary-color: #1a1a3d; /* Tom mais claro de azul escuro para contraste */
+    --accent-color: #00ffff; /* Ciano brilhante para acentos (Orion Nebula) */
+    --text-color: #e0e0e0; /* Cinza claro para texto principal */
+    --text-secondary-color: #a0a0a0; /* Cinza mais escuro para texto secundário */
+    --star-color: #ffffff; /* Cor para as estrelas do background-image */
+    --card-background: rgba(26, 26, 61, 0.8); /* Fundo para cards e widgets, usando secondary-color com alpha */
+    --border-color: rgba(0, 255, 255, 0.3); /* Borda sutil com accent-color e alpha */
+}
+
+body {
+    font-family: 'Fira Code', monospace;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--primary-color); /* Cor de fundo base */
+    overflow-x: hidden; /* Prevenir scroll horizontal */
+    line-height: 1.6;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Abaixo do conteúdo, mas acima do background-color do body */
+    background-color: var(--primary-color); /* Cor de fundo principal */
+}
+
+#constellation-canvas {
+    display: block; /* Remove espaço extra abaixo se for inline */
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =============================================== */
+/* Estilos Específicos para a Página de Admin      */
+/* (admin.php)                                     */
+/* =============================================== */
+
+.admin-container {
+    max-width: 800px; /* Similar ao single-post-container */
+    margin: 30px auto;
+    padding: 25px; /* Um pouco mais de padding */
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative; /* Para garantir que fique acima do .background */
+    z-index: 1;
+}
+
+.admin-container h2 {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-top: 0; /* Remover margem do topo se for o primeiro elemento */
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+.admin-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-secondary-color);
+    font-size: 0.95em;
+    font-weight: bold;
+}
+
+.admin-container input[type="text"],
+.admin-container textarea {
+    width: calc(100% - 22px); /* Largura total menos padding (10px*2) e borda (1px*2) */
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: var(--secondary-color); /* Fundo um pouco mais escuro que o card */
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-container input[type="text"]:focus,
+.admin-container textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.3); /* Sombra suave no foco */
+}
+
+.admin-container textarea {
+    min-height: 150px; /* Altura mínima para o textarea */
+    resize: vertical; /* Permitir redimensionamento vertical */
+}
+
+.admin-container button[type="submit"] {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--accent-color);
+    color: var(--primary-color); /* Cor do texto do botão */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.admin-container button[type="submit"]:hover {
+    background-color: var(--text-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Estilos para a navegação no header do admin */
+.admin-nav {
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.admin-nav span {
+     margin-right: 10px;
+     color: var(--text-color);
+}
+
+.admin-nav a {
+    color: var(--text-secondary-color);
+    text-decoration: none;
+    margin: 0 8px;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.admin-nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Estilos para o input de arquivo e a tag small */
+.admin-container input[type="file"] {
+    width: calc(100% - 22px); /* Similar aos outros inputs */
+    padding: 8px; /* Um pouco menos de padding vertical que text inputs */
+    margin-bottom: 5px; /* Menor margem inferior antes do <small> */
+    background-color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color); /* A cor do texto "Nenhum arquivo selecionado" pode ser difícil de estilizar diretamente */
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9em; /* Um pouco menor para o input de arquivo */
+    box-sizing: border-box; /* Garante que padding e border não aumentem a largura total */
+}
+
+/* Estilizando o botão dentro do input file (funciona na maioria dos navegadores modernos) */
+.admin-container input[type="file"]::file-selector-button {
+    padding: 8px 15px;
+    margin-right: 10px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Fira Code', monospace;
+    font-weight: bold;
+}
+
+.admin-container input[type="file"]::file-selector-button:hover {
+    background-color: var(--text-color);
+}
+
+.admin-container small {
+    display: block; /* Faz a tag small ocupar a linha inteira */
+    margin-bottom: 20px; /* Margem padrão após a tag small */
+    font-size: 0.8em;
+    color: var(--text-secondary-color);
+}
+

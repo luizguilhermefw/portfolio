@@ -1,0 +1,468 @@
+body {
+    font-family: 'Fira Code', monospace;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--primary-color); /* Cor de fundo base */
+    overflow-x: hidden; /* Prevenir scroll horizontal */
+    line-height: 1.6;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Abaixo do conteúdo, mas acima do background-color do body */
+    background-color: var(--primary-color); /* Cor de fundo principal */
+}
+
+#constellation-canvas {
+    display: block; /* Remove espaço extra abaixo se for inline */
+    width: 100%;
+    height: 100%;
+}
+
+/* =============================================== */
+/* Estilos Específicos para a Página de Admin      */
+/* (admin.php)                                     */
+/* =============================================== */
+
+:root {
+    --primary-color: #0a0a1f; /* Azul escuro profundo, quase preto */
+    --secondary-color: #1a1a3d; /* Tom mais claro de azul escuro para contraste */
+    --accent-color: #00ffff; /* Ciano brilhante para acentos (Orion Nebula) */
+    --text-color: #e0e0e0; /* Cinza claro para texto principal */
+    --text-secondary-color: #a0a0a0; /* Cinza mais escuro para texto secundário */
+    --star-color: #ffffff; /* Cor para as estrelas do background-image */
+    --card-background: rgba(26, 26, 61, 0.8); /* Fundo para cards e widgets, usando secondary-color com alpha */
+    --border-color: rgba(0, 255, 255, 0.3); /* Borda sutil com accent-color e alpha */
+}
+
+body {
+    font-family: 'Fira Code', monospace;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--primary-color); /* Cor de fundo base */
+    overflow-x: hidden; /* Prevenir scroll horizontal */
+    line-height: 1.6;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Abaixo do conteúdo, mas acima do background-color do body */
+    background-color: var(--primary-color); /* Cor de fundo principal */
+}
+
+#constellation-canvas {
+    display: block; /* Remove espaço extra abaixo se for inline */
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Estilos básicos para a página de blog (blog.html) */
+.blog-header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: rgba(10, 10, 31, 0.5); /* Usando primary-color com alpha para leve contraste */
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1; /* Acima do .background */
+    border-bottom: 1px solid var(--border-color);
+}
+
+.blog-header h1 {
+    margin-top: 0;
+    color: var(--accent-color);
+    font-size: 2.5em;
+}
+
+.blog-header p {
+    font-size: 1.1em;
+    color: var(--text-secondary-color);
+}
+
+.btn-voltar-portfolio {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.btn-voltar-portfolio:hover {
+    background-color: var(--text-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Estilo para o link de Admin com avatar no Header */
+.admin-avatar-link {
+    position: absolute;
+    top: 25px; /* Ajuste vertical conforme necessário */
+    right: 25px; /* Ajuste horizontal conforme necessário */
+    display: flex; /* Para alinhar ícone e texto lado a lado */
+    align-items: center; /* Alinha verticalmente o ícone e o texto */
+    text-decoration: none;
+    color: var(--text-secondary-color); /* Cor do texto e ícone */
+    transition: color 0.3s ease;
+    z-index: 10;
+}
+
+.admin-avatar-link:hover {
+    color: var(--accent-color); /* Muda a cor no hover */
+}
+
+.admin-avatar-icon {
+    font-size: 1.8em; /* Tamanho do ícone do avatar */
+    margin-right: 8px; /* Espaço entre o ícone e o texto */
+}
+    
+.admin-avatar-text {    
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.admin-avatar-image {
+    width: 30px; /* Ajuste o tamanho conforme desejado */
+    height: 30px; /* Ajuste o tamanho conforme desejado */
+    border-radius: 50%; /* Para deixar a imagem redonda */
+    margin-right: 8px; /* Espaço entre a imagem e o texto "Admin" */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    border: 1px solid var(--border-color); /* Opcional: uma pequena borda */
+}
+
+.btn-admin-header:hover {
+    background-color: var(--text-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Container principal do blog (conteúdo + sidebar) */
+.blog-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que a sidebar vá para baixo em telas menores */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.blog-main-content {
+    flex: 3; /* Ocupa 3 partes do espaço disponível */
+    min-width: 0; /* Ajuda com flexbox e conteúdo que transborda */
+}
+
+.blog-main-content h2 {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.blog-post-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Garante que o conteúdo se empilhe verticalmente */
+}
+
+.blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.2); /* Sombra com cor de acento */
+}
+
+.post-thumbnail a {
+    display: block; /* Para o link ocupar o espaço da imagem */
+}
+
+.post-thumbnail img {
+    width: 100%;
+    height: 200px; /* Altura fixa para as thumbnails */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.post-content {
+    padding: 20px;
+    flex-grow: 1; /* Faz o conteúdo do card crescer para preencher o espaço */
+    display: flex;
+    flex-direction: column;
+}
+
+.post-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.post-content h3 a {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-size: 1.4em;
+    transition: color 0.3s ease;
+}
+
+.post-content h3 a:hover {
+    color: var(--text-color);
+}
+
+.post-meta {
+    font-size: 0.85em;
+    color: var(--text-secondary-color);
+    margin-bottom: 15px;
+}
+
+.post-excerpt {
+    font-size: 0.95em;
+    color: var(--text-color);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Empurra o botão "Ler Mais" para baixo */
+}
+
+.btn-ler-mais {
+    display: inline-block;
+    align-self: flex-start; /* Alinha o botão à esquerda no card */
+    padding: 10px 18px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-top: auto; /* Garante que fique no final se o excerpt for curto */
+}
+
+.post-actions {
+    display: flex;
+    align-items: center; /* Alinha verticalmente os botões e o contador de like */
+    gap: 15px; /* Espaço entre os botões */
+    margin-top: auto; /* Empurra para o final do card */
+}
+
+.admin-action-buttons {
+    margin-left: auto; 
+}
+
+.btn-like-post {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary-color);
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9em;
+    display: inline-flex; 
+    align-items: center;
+}
+
+.btn-like-post i.fa-heart { /* Estilo específico para o ícone de coração */
+    transition: color 0.2s ease; /* Transição suave da cor do ícone */
+    margin-right: 5px; /* Espaço entre o ícone e o contador de likes */
+}
+
+/* Estado padrão do ícone (não curtido - contorno) */
+.btn-like-post .far.fa-heart {
+    color: var(--text-secondary-color); /* Cor padrão do ícone não curtido */
+}
+
+/* Estado do ícone quando o post está curtido (preenchido) */
+.btn-like-post .fas.fa-heart {
+    color: #e74c3c; 
+}
+
+/* Efeito :hover no botão de like */
+.btn-like-post:hover {
+    border-color: var(--accent-color); /* Borda do botão muda para a cor de destaque */
+}
+.btn-like-post:hover .far.fa-heart { /* Ícone não curtido no hover */
+    color: var(--accent-color);
+}
+
+.btn-like-post:hover .like-count { /* Contador de likes no hover */
+    color: var(--accent-color); /* Cor do contador muda para a cor de destaque */
+}
+.btn-like-post:hover .fas.fa-heart { 
+    color: #e74c3c; 
+}
+
+.btn-ler-mais:hover {
+    background-color: var(--text-color);
+    color: var(--primary-color);
+}
+
+
+.btn-ler-mais i {
+    margin-left: 8px;
+}
+
+/* Sidebar */
+.blog-sidebar {
+    flex: 1; /* Ocupa 1 parte do espaço disponível */
+    min-width: 280px; /* Largura mínima para a sidebar */
+}
+
+.widget {
+    background-color: var(--card-background);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.widget h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+    font-size: 1.2em;
+}
+
+.widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.widget ul li {
+    margin-bottom: 8px;
+}
+
+.widget ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.widget ul li a:hover {
+    color: var(--accent-color);
+}
+
+.search-widget form {
+    display: flex;
+}
+
+.search-widget input[type="search"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+.search-widget input[type="search"]::placeholder {
+    color: var(--text-secondary-color);
+}
+
+.search-widget button[type="submit"] {
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-widget button[type="submit"]:hover {
+    background-color: var(--text-color);
+}
+
+.about-widget p {
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+    color: var(--text-secondary-color);
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border-color);
+    background-color: rgba(10, 10, 31, 0.5); /* Mesmo do header para consistência */
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Estilos para o Botão Voltar ao Topo */
+.button-base { /* Classe base que você pode usar para outros botões se necessário */
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
+
+#btnTopo {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999; /* Alinhado com style.css para consistência */
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    font-size: 44px; /* Tamanho do ícone igual ao style.css */
+    color: var(--accent-color); /* Cor do ícone (ciano/turquoise, similar ao --primary-color do style.css para o botão) */
+    /* border-radius: 50%; removido para alinhar com style.css (que não tem borda redonda) */
+    /* cursor: pointer; e transition são herdados de .button-base */
+}
+
+#btnTopo:hover {
+    transform: scale(1.1); /* Mantém o efeito de escala */
+    color: #ff00ff; /* Cor magenta no hover, igual ao --secondary-color do style.css para o botão */
+    background-color: rgba(0, 0, 0, 0.1); /* Fundo no hover igual ao --card-background-hover-color do style.css */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .blog-container {
+        flex-direction: column; /* Empilha o conteúdo principal e a sidebar */
+    }
+
+    .blog-main-content,
+    .blog-sidebar {
+        flex-basis: 100%; /* Fazem ocupar toda a largura */
+        min-width: auto;
+    }
+
+    .posts-grid {
+        grid-template-columns: 1fr; /* Uma coluna para os posts em telas menores */
+    }
+
+    .blog-header h1 {
+        font-size: 2em;
+    }
+}

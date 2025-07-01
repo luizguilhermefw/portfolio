@@ -1,0 +1,10 @@
+# Arquivo de configuração do banco de dados
+db_config.php
+
+# Arquivos de dependências 
+/vendor/
+/node_modules/
+
+# Arquivos de log e temporários
+*.log
+*.tmp

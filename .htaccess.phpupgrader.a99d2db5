@@ -1,0 +1,172 @@
+# BEGIN Newfold Headers
+<IfModule mod_headers.c>
+	Header set X-Newfold-Cache-Level "2"
+</IfModule>
+# END Newfold Headers
+# BEGIN Newfold Browser Cache
+<IfModule mod_expires.c>
+	ExpiresActive On
+	ExpiresDefault "access plus 24 hours"
+	ExpiresByType text/html "access plus 2 hours"
+	ExpiresByType image/jpg "access plus 24 hours"
+	ExpiresByType image/jpeg "access plus 24 hours"
+	ExpiresByType image/gif "access plus 24 hours"
+	ExpiresByType image/png "access plus 24 hours"
+	ExpiresByType text/css "access plus 24 hours"
+	ExpiresByType text/javascript "access plus 24 hours"
+	ExpiresByType application/pdf "access plus 1 week"
+	ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
+# END Newfold Browser Cache
+# BEGIN Newfold File Cache
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+	RewriteRule ^/wp-content/newfold-page-cache// - [L]
+	RewriteCond %{REQUEST_METHOD} !POST
+	RewriteCond %{QUERY_STRING} !.*=.*
+	RewriteCond %{HTTP_COOKIE} !(wordpress_test_cookie|comment_author|wp\-postpass|wordpress_logged_in|wptouch_switch_toggle|wp_woocommerce_session_) [NC]
+	RewriteCond %{HTTP:Cache-Control} ^((?!no-cache).)*$
+	RewriteCond %{DOCUMENT_ROOT}/wp-content/newfold-page-cache//$1/_index.html -f
+	RewriteRule ^(.*)$ /wp-content/newfold-page-cache//$1/_index.html [L]
+</IfModule>
+# END Newfold File Cache
+# BEGIN Newfold Skip 404 Handling for Static Files
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_URI} !(robots\.txt|ads\.txt|[a-z0-9_\-]*sitemap[a-z0-9_\.\-]*\.(xml|xsl|html)(\.gz)?)
+	RewriteCond %{REQUEST_URI} \.(css|htc|less|js|js2|js3|js4|html|htm|rtf|rtx|txt|xsd|xsl|xml|asf|asx|wax|wmv|wmx|avi|avif|avifs|bmp|class|divx|doc|docx|eot|exe|gif|gz|gzip|ico|jpg|jpeg|jpe|webp|json|mdb|mid|midi|mov|qt|mp3|m4a|mp4|m4v|mpeg|mpg|mpe|webm|mpp|otf|_otf|odb|odc|odf|odg|odp|ods|odt|ogg|ogv|pdf|png|pot|pps|ppt|pptx|ra|ram|svg|svgz|swf|tar|tif|tiff|ttf|ttc|_ttf|wav|wma|wri|woff|woff2|xla|xls|xlsx|xlt|xlw|zip)$ [NC]
+	RewriteRule .* - [L]
+</IfModule>
+# END Newfold Skip 404 Handling for Static Files
+# BEGIN SpeedyCacheheaders
+FileETag None
+<IfModule mod_headers.c>
+	Header unset ETag
+</IfModule>
+<FilesMatch "\.(html)$">
+<IfModule mod_headers.c>
+	Header set x-speedycache-source "Server"
+	Header set Cache-Tag "pais360.com"
+	Header set CDN-Cache-Control "max-age=1296000"
+	Header set Cache-Control "public"
+	Header unset Pragma
+	Header unset Last-Modified
+</IfModule>
+</FilesMatch>
+<FilesMatch "\.(css|htc|js|asf|asx|wax|wmv|wmx|avi|bmp|class|divx|doc|docx|eot|exe|gif|gz|gzip|ico|jpg|jpeg|jpe|json|mdb|mid|midi|mov|qt|mp3|m4a|mp4|m4v|mpeg|mpg|mpe|mpp|otf|odb|odc|odf|odg|odp|ods|odt|ogg|pdf|png|pot|pps|ppt|pptx|ra|ram|svg|svgz|swf|tar|tif|tiff|ttf|ttc|wav|wma|wri|xla|xls|xlsx|xlt|xlw|zip)$">
+	<IfModule mod_headers.c>
+		Header unset Pragma
+		Header set Cache-Control "public"
+	</IfModule>
+</FilesMatch>
+# END SpeedyCacheheaders
+# BEGIN Gzipspeedycache
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE font/opentype
+	AddOutputFilterByType DEFLATE font/otf
+	AddOutputFilterByType DEFLATE font/ttf
+	AddOutputFilterByType DEFLATE font/woff
+	AddOutputFilterByType DEFLATE font/woff2
+	AddOutputFilterByType DEFLATE text/js
+	AddOutputFilterByType DEFLATE text/css
+	AddOutputFilterByType DEFLATE text/html
+	AddOutputFilterByType DEFLATE text/javascript
+	AddOutputFilterByType DEFLATE text/plain
+	AddOutputFilterByType DEFLATE text/xml
+	AddOutputFilterByType DEFLATE image/svg+xml
+	AddOutputFilterByType DEFLATE image/x-icon
+	AddOutputFilterByType DEFLATE application/javascript
+	AddOutputFilterByType DEFLATE application/x-javascript
+	AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+	AddOutputFilterByType DEFLATE application/x-font
+	AddOutputFilterByType DEFLATE application/x-font-opentype
+	AddOutputFilterByType DEFLATE application/x-font-otf
+	AddOutputFilterByType DEFLATE application/x-font-truetype
+	AddOutputFilterByType DEFLATE application/x-font-ttf
+	AddOutputFilterByType DEFLATE application/font-woff2
+	AddOutputFilterByType DEFLATE application/xhtml+xml
+	AddOutputFilterByType DEFLATE application/xml
+	AddOutputFilterByType DEFLATE application/rss+xml
+</IfModule>
+# END Gzipspeedycache
+# BEGIN LBCspeedycache
+<IfModule mod_expires.c>
+	ExpiresActive on
+	ExpiresDefault A0
+	ExpiresByType text/css A31536000
+	ExpiresByType text/javascript A31536000
+	ExpiresByType font/ttf A31536000
+	ExpiresByType font/otf A31536000
+	ExpiresByType font/woff A31536000
+	ExpiresByType font/woff2 A31536000
+	ExpiresByType image/jpg A31536000
+	ExpiresByType image/jpeg A31536000
+	ExpiresByType image/png A31536000
+	ExpiresByType image/gif A31536000
+	ExpiresByType image/webp A31536000
+	ExpiresByType image/x-icon A31536000
+	ExpiresByType image/svg+xml A31536000
+	ExpiresByType image/vnd.microsoft.icon A31536000
+	ExpiresByType video/ogg A31536000
+	ExpiresByType video/mp4 A31536000
+	ExpiresByType video/webm A31536000
+	ExpiresByType audio/ogg A31536000
+	ExpiresByType application/pdf A31536000
+	ExpiresByType application/javascript A31536000
+	ExpiresByType application/x-javascript A31536000
+	ExpiresByType application/x-font-ttf A31536000
+	ExpiresByType application/x-font-woff A31536000
+	ExpiresByType application/font-woff A31536000
+	ExpiresByType application/font-woff2 A31536000
+	ExpiresByType application/vnd.ms-fontobject A31536000
+</IfModule>
+# END LBCspeedycache
+# BEGIN WEBPspeedycache
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteCond %{HTTP_ACCEPT} image/webp
+	RewriteCond %{REQUEST_FILENAME} \.(jpe?g|png|gif)$
+	RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+	RewriteRule ^(.+)\.(jpe?g|png|gif)$ $1.webp [T=image/webp,L]
+</IfModule>
+<IfModule mod_headers.c>
+  Header append Vary Accept env=REDIRECT_accept
+</IfModule>
+AddType image/webp .webp
+# END WEBPspeedycache
+# BEGIN speedycache
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+	RewriteCond %{REQUEST_METHOD} GET
+	RewriteCond %{HTTP_USER_AGENT} !(Mediatoolkitbot|facebookexternalhit|SpeedyCacheCCSS)
+	RewriteCond %{QUERY_STRING} =""
+	RewriteCond %{HTTP:Cookie} !(comment_author_|wordpress_logged_in_)
+	RewriteCond %{REQUEST_URI} !(\/){2}$
+	RewriteCond %{REQUEST_URI} !^/(wp-(?:admin|login|register|comments-post|cron|json))/ [NC]
+	RewriteCond %{DOCUMENT_ROOT}/wp-content/cache/speedycache/%{HTTP_HOST}/all%{REQUEST_URI}/index.html -f
+	RewriteRule ^(.*) /wp-content/cache/speedycache/%{HTTP_HOST}/all%{REQUEST_URI}/index.html [L]
+</IfModule>
+# END speedycache
+# BEGIN WordPress
+# As directivas (linhas) entre "BEGIN WordPress" e "END WordPress" são geradas
+# dinamicamente e não deverão ser modificadas através de filtros do WordPress.
+# Qualquer alteração às instruções entre estes marcadores será sobreposta.
+Options -Indexes
+<IfModule mod_headers.c>
+	Header set X-Endurance-Cache-Level "2"
+	Header set X-nginx-cache "WordPress"
+</IfModule>
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress

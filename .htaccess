@@ -1,0 +1,16 @@
+# Ativa o motor de reescrita de URL do Apache
+RewriteEngine On
+
+# Redireciona permanentemente o acesso direto a index.html para a raiz do site (/)
+RewriteRule ^index\.html$ / [R=301,L]
+
+# Regra para remover a extensão .html das URLs
+# 1. Verifica se a URL solicitada não corresponde a um arquivo existente
+RewriteCond %{REQUEST_FILENAME} !-f
+# 2. Verifica se a URL solicitada não corresponde a um diretório existente
+RewriteCond %{REQUEST_FILENAME} !-d
+# 3. Verifica se existe um arquivo com o mesmo nome + .html
+RewriteCond %{REQUEST_FILENAME}.html -f
+# 4. Se tudo for verdade, reescreve internamente a URL para o arquivo .html correspondente
+RewriteRule ^(.*)$ $1.html [L]
+

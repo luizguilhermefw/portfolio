@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Luiz Guilherme Fernandes Wagner</title>
+    <link rel="stylesheet" href="styleblog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <canvas id="constellation-canvas"></canvas> 
+    </div>
+    <header class="blog-header"> 
+        <h1>Meu Blog</h1>
+        <p>Conteúdo sobre desenvolvimento, tecnologia e mais.</p>
+        <a href="/" class="btn-voltar-portfolio">Voltar ao Portfólio</a>
+        <a href="login.php" id="admin-header-button" class="admin-avatar-link">
+            <img src="/images_blog/avatarLuiz.png" alt="Admin Avatar" class="admin-avatar-image">
+            <span class="admin-avatar-text">Admin</span>
+        </a>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    </header>
+
+    <div class="blog-container"> 
+        <main class="blog-main-content">
+            <section id="posts">
+                <h2>Últimos Posts</h2>
+                <div class="posts-grid"> 
+                </div>
+            </section>
+        </main>
+
+        <aside class="blog-sidebar">
+            <div class="widget search-widget">
+                <h4>Pesquisar</h4>
+                <form action="#" method="get"> 
+                    <input type="search" name="q" placeholder="Digite sua busca...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <div class="widget categories-widget">
+                <h4>Categorias</h4>
+                <ul>
+                    <li><a href="#">Desenvolvimento Web (2)</a></li> 
+                    <li><a href="#">SEO (1)</a></li>
+                    <li><a href="#">Tecnologia (1)</a></li> 
+                    <li><a href="#">Outros Assuntos (0)</a></li>
+                </ul>
+            </div>
+            <div class="widget recent-posts-widget">
+                <h4>Posts Recentes</h4>
+                <ul>
+                    <li><a href="#">Título do Novo Post Incrível</a></li>
+                    <li><a href="#">Como Começar no Desenvolvimento Web em 2024</a></li>
+                    <li><a href="#">A Importância do SEO para Pequenos Negócios</a></li>
+                </ul>
+            </div>
+            <div class="widget about-widget">
+                <h4>Sobre Mim</h4>
+                <p>Bem-vindo(a) ao meu hub de insights sobre tecnologia e o universo digital! Sou Luiz Guilherme, desenvolvedor Fullstack, e este espaço é dedicado a você que busca uma presença digital impactante e alinhada com as últimas tendências. Aqui, compartilho conhecimentos, novidades e estratégias para que seu projeto online alcance novas alturas. Explore, informe-se e descubra como a tecnologia certa pode impulsionar seus resultados.</p>
+            </div>
+        </aside>
+    </div>
+
+    <button id="btnTopo" class="button-base" title="Subir para o topo">
+        <i class="fas fa-rocket"></i>
+    </button>
+    
+    <footer>
+        <p><small>&copy; 2025 Blog de Luiz Guilherme Fernandes Wagner.</small></p>
+    </footer>
+    <script src="script_blog.js"></script>
+</body>
+</html>

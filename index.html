@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Luiz Guilherme Fernandes Wagner - Portfólio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+    <div class="background"></div>
+    <header>
+        <img class="profile-img" src="./images/perfil-luiz.jpeg" alt="foto perfil do Luiz">
+        <h1>Luiz Guilherme Fernandes Wagner</h1>
+        <h2>&lt;/Desenvolvedor Fullstack&gt;</h2>
+            
+        <div class="social-icons">
+            <a href="https://github.com/luizguilhermefw" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/luizguilhermefw" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:ziulprof@gmail.com" aria-label="E-mail"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/45991335359" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>   
+
+    </header>
+    <main>
+        <nav class="menu">
+            <ul>
+                <li><a href="#projetos"><i class="fa-solid fa-code"></i> Meus Projetos</a></li>
+                <li><a href="#servicos"><i class="fa-solid fa-laptop-code"></i> Meus serviços contratáveis</a></li>
+                <li><a href="#hard-skills"><i class="fa-solid fa-user-gear"></i> Tecnologias que trabalho</a></li>
+                <li><a href="#sobre-mim"><i class="fa-solid fa-user-astronaut"></i> Sobre mim</a></li>
+                <li><a href="/blog"><i class="fa-solid fa-blog"></i> Blog</a></li>
+            </ul>
+        </nav>
+
+        <section id="projetos" class="content">
+            <h2>Meus Projetos</h2>
+            <div class="projetos-grid">
+                <!-- Projeto 1: Formula1 -->
+                <div class="projeto-item">
+                    <h3>Formula1</h3>
+                    <p class="project-subtitle">Campeonato Mundial</p> 
+                    <p>Este projeto é sobre o campeonato mundial de Formula1.</p>    
+                    <div class="projeto-botoes">
+                        <a href="https://github.com/luizguilhermefw/formula1/tree/master" target="_blank" rel="noopener" aria-label="GitHub" class="github-link">
+                            <i class="fab fa-github"></i> 
+                        </a>                    
+                        <button class="btn-demonstracao" data-modal-target="modal-formula1">
+                            Demonstração
+                        </button>
+                    </div>
+                </div>
+        
+                <!-- Projeto 2: Campanha -->
+                <div class="projeto-item">
+                    <h3>Campanha</h3>
+                    <p class="project-subtitle">Vereador 2024</p> 
+                    <p>Este projeto de campanha pra um candidato a vereador.</p>
+                    <div class="projeto-botoes">
+                        <a href="LINK_DO_SEU_PROJETO_NO_SCRATCH" target="_blank" rel="noopener" aria-label="Scratch" class="github-link"> 
+                            <i class="fab fa-scratch"></i> 
+                        </a>
+                        
+                        <button class="btn-demonstracao" data-modal-target="modal-campanha">
+                            Demonstração
+                        </button>
+                    </div>
+                </div>
+        
+                <!-- Projeto 3: Pagina Institucional -->
+                  <div class="projeto-item">
+                    <h3>Página Institucional</h3>
+                    <p class="project-subtitle">Padrão Motores Elétricos</p> 
+                    <div class="projeto-botoes">
+                        <a href="https://www.padraomotoreseletricos.com.br/index.php" target="_blank" rel="noopener" class="btn-demonstracao">
+                            Visitar Página
+                        </a>
+                    </div>
+                </div>
+        
+                <!-- Projeto 4: Contador de Pessoas -->
+                <div class="projeto-item">
+                    <h3>Aplicativo Mobile</h3>
+                    <p class="project-subtitle">Contador de Pessoas</p> 
+                    <p>Este projeto de campanha pra um candidato a vereador.</p> 
+                    <div class="projeto-botoes">
+                        <a href="https://github.com/luizguilhermefw/people-counter/tree/master" target="_blank" rel="noopener" aria-label="GitHub" class="github-link">
+                            <i class="fab fa-github"></i> 
+                        </a>
+                        <button class="btn-demonstracao" data-modal-target="modal-contador-pessoas">
+                            Demonstração
+                        </button>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Modal para o vídeo do Formula1 -->
+            <div id="modal-formula1" class="modal">
+                <div class="modal-content">
+                    <span class="fechar" data-modal-close="modal-formula1">&times;</span>
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/43ASVdjLvQA"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        
+            <!-- Modal para o vídeo da Campanha -->
+            <div id="modal-campanha" class="modal">
+                <div class="modal-content">
+                    <span class="fechar" data-modal-close="modal-campanha">&times;</span>
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/CtvEN1cpFps?si=ncdAUL-ptD-VdQgz"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        
+            <!-- Modal para o vídeo do App Contador de Pessoas -->
+            <div id="modal-contador-pessoas" class="modal">
+                <div class="modal-content">
+                    <span class="fechar" data-modal-close="modal-contador-pessoas">&times;</span>
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/43ASVdjLvQA" 
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre-mim" class="content">
+            <h2>Sobre Mim</h2>
+            <p>Olá, meu nome é Luiz Guilherme Fernandes Wagner.</p> 
+            <p>Sou desenvolvedor e um apaixonado por tecnologia, inovação e soluções que fazem a diferença. Com uma sólida experiência em análise e desenvolvimento de sistemas, trago uma combinação única de habilidades técnicas e interpessoais, adquiridas ao longo de mais de uma década atuando em ambientes desafiadores e dinâmicos.</p>
+                
+            <p>Minha trajetória me permitiu desenvolver competências essenciais, como comunicação clara, capacidade de negociação e liderança colaborativa, sempre com foco em entender e atender às necessidades dos clientes. Acredito que a tecnologia é uma ferramenta poderosa para resolver problemas e criar oportunidades, e é nisso que me dedico: entregar soluções eficientes, criativas e alinhadas aos objetivos de cada projeto.</p>
+                
+            <p>Tenho um forte comprometimento com a excelência e estou sempre em busca de aprendizado e aprimoramento. Minha abordagem é baseada em criatividade, determinação e foco em resultados, características que me permitem enfrentar desafios complexos com confiança e profissionalismo.</p>
+                
+            <p>Estou animado para colaborar em projetos inovadores e inspiradores, contribuindo com meu conhecimento técnico e minha visão estratégica para alcançar resultados excepcionais.</p> 
+            <p>Vamos construir algo incrível juntos!</p>
+        </section>
+    
+        <section id="hard-skills" class="content">
+            <h2>Tecnologias que trabalho</h2>
+            <div class="hard-skills-list"> 
+                <div class="skill-hard">
+                    <div>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML Icon">
+                    </div>
+                    <h4>HTML</h4>
+                </div>
+                <div class="skill-hard">
+                    <div>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS Icon">
+                    </div>
+                    <h4>CSS</h4>
+                </div>
+                <div class="skill-hard">
+                    <div>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript Icon">
+                    </div>
+                    <h4>JAVASCRIPT</h4>
+                </div>
+                <div class="skill-hard">
+                    <div>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue.js Icon">
+                    </div>
+                    <h4>VUE</h4>
+                </div>
+                <div class="skill-hard">
+                    <div>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter Icon">
+                    </div>
+                    <h4>DART | FLUTTER</h4>
+                </div>
+                <div class="skill-hard">
+                    <div>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python Icon">
+                    </div>
+                    <h4>PYTHON | FLASK</h4>
+                </div>
+                <div class="skill-hard">
+                    <div>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" alt="Database Icon">
+                    </div>
+                    <h4>BANCO DE DADOS: SQL | NOSQL</h4>
+                </div>
+                <div class="skill-hard">
+                    <div>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git Icon">
+                    </div>
+                    <h4>GIT</h4>
+                </div>
+            </div>
+        </section>
+         
+        <section id="servicos" class="content">
+            <h2>Serviços contratáveis</h2>
+            <div class="skills-soft-list"> 
+                <div class="skill-soft">
+                    <h3>Criação de Sites</h3>
+                    <p>Transformo suas ideias em um site profissional e atrativo, focado em transmitir sua mensagem de forma clara e eficaz.</p>
+                </div>
+                <div class="skill-soft">
+                    <h3>Criação de Landing Pages</h3>
+                    <p>Crio páginas de destino impactantes e otimizadas para converter visitantes em clientes, utilizando técnicas comprovadas de design e persuasão.</p>
+                </div>
+                <div class="skill-soft">
+                    <h3>Otimização de SEO</h3>
+                    <p>Maximizo a visibilidade do seu site nos mecanismos de busca, implementando estratégias avançadas de SEO para aumentar o tráfego orgânico e melhorar seu ranking.</p>
+                </div> 
+                <div class="skill-soft">
+                    <h3>Conexão/Consumo de REST API's</h3>
+                    <p>Integro e consumo APIs de forma eficiente para proporcionar funcionalidades avançadas ao seu site ou aplicativo, garantindo uma experiência de usuário dinâmica e interativa.</p>
+                </div>   
+        </section>
+        
+    </main>
+
+    <button id="btnTopo" class="button-base" title="Subir para o topo">
+        <i class="fas fa-rocket"></i>
+    </button>
+
+    <footer>
+        <p><small>&copy; 2025 Desenvolvido por Luiz Guilherme Fernandes Wagner.</small></p> 
+        <p><small>Um discípulo de Jesus.</small></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
