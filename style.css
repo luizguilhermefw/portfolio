@@ -301,11 +301,12 @@ footer {
     transform: translateY(30px);
     display: flex;
     flex-direction: column;
-    min-height: 520px; /* Altura mínima, mas pode expandir */
+    height: 520px; /* Altura fixa para uniformidade */
 }
 
 .projeto-card.expanded {
-    min-height: auto; /* Remove limitação de altura quando expandido */
+    height: auto; /* Permite expansão quando "Leia mais" é clicado */
+    min-height: 520px; /* Mantém altura mínima quando expandido */
 }
 
 @keyframes fadeInUp {
@@ -437,6 +438,11 @@ footer {
     flex: 1;
     display: flex;
     flex-direction: column;
+    overflow: hidden; /* Esconde overflow no estado normal */
+}
+
+.projeto-card.expanded .projeto-description {
+    overflow: visible; /* Permite overflow quando expandido */
 }
 
 .btn-read-more {
@@ -561,11 +567,12 @@ footer {
     .projeto-card {
         margin: 0 0.5rem;
         transform: none;
-        min-height: 480px; /* Altura mínima ajustada para mobile */
+        height: 480px; /* Altura fixa para mobile também */
     }
     
     .projeto-card.expanded {
-        min-height: auto; /* Pode expandir no mobile também */
+        height: auto; /* Permite expansão no mobile quando "Leia mais" */
+        min-height: 480px; /* Altura mínima quando expandido no mobile */
     }
     
     .projeto-card:hover {
