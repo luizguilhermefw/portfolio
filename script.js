@@ -10,21 +10,35 @@ function pauseYouTubeVideo(modal) {
 // Função para fechar um modal específico e pausar vídeo
 function closeModal(modal) {
     if (modal) {
-        modal.style.display = "none";
+        modal.classList.remove('show');
         pauseYouTubeVideo(modal);
+        
+        // Aguarda a animação terminar antes de esconder
+        setTimeout(() => {
+            modal.style.display = "none";
+        }, 300);
     }
 }
 
-// Função para abrir o modal
+// Função para abrir o modal com animação
 function abrirModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.style.display = "block";
-        // Opcional: Se desejar que o vídeo comece a tocar ao abrir (requer autoplay no iframe e permissões do navegador)
-        // const iframe = modal.querySelector('iframe[src*="youtube.com/embed"]');
-        // if (iframe && iframe.contentWindow) {
-        //     iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-        // }
+        // Força o reflow antes de adicionar a classe de animação
+        modal.offsetHeight;
+        modal.classList.add('show');
+        
+        // Pausa outros vídeos que possam estar rodando
+        document.querySelectorAll('.modal iframe').forEach(iframe => {
+            if (iframe.src.includes('youtube.com/embed') && iframe.contentWindow) {
+                try {
+                    iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                } catch (e) {
+                    // Ignora erros de cross-origin
+                }
+            }
+        });
     }
 }
 
