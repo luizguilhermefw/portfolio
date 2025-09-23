@@ -165,3 +165,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Função para expandir/contrair descrição dos projetos
+function toggleDescription(button) {
+    const description = button.parentElement;
+    const preview = description.querySelector('.description-preview');
+    const full = description.querySelector('.description-full');
+    
+    if (full.style.display === 'none') {
+        // Expandir
+        preview.style.display = 'none';
+        full.style.display = 'inline';
+        button.textContent = 'Leia menos';
+        button.classList.add('expanded');
+    } else {
+        // Contrair
+        preview.style.display = 'inline';
+        full.style.display = 'none';
+        button.textContent = 'Leia mais';
+        button.classList.remove('expanded');
+    }
+}
