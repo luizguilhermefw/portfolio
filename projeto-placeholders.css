@@ -1,0 +1,50 @@
+/* Placeholder Images - Substituir por imagens reais */
+.projeto-image img[src*="placeholder"] {
+    display: none;
+}
+
+.projeto-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Formula1 Placeholder */
+.projeto-card:nth-child(1) .projeto-image {
+    background: linear-gradient(135deg, #ff1744, #f50057);
+}
+
+.projeto-card:nth-child(1) .projeto-image::after {
+    content: "🏎️";
+}
+
+/* Campanha Placeholder */
+.projeto-card:nth-child(2) .projeto-image {
+    background: linear-gradient(135deg, #2196f3, #03a9f4);
+}
+
+.projeto-card:nth-child(2) .projeto-image::after {
+    content: "🗳️";
+}
+
+/* Padrão Motores Placeholder */
+.projeto-card:nth-child(3) .projeto-image {
+    background: linear-gradient(135deg, #ff9800, #f57c00);
+}
+
+.projeto-card:nth-child(3) .projeto-image::after {
+    content: "⚙️";
+}
+
+/* Blog Placeholder */
+.projeto-card:nth-child(4) .projeto-image {
+    background: linear-gradient(135deg, #9c27b0, #673ab7);
+}
+
+.projeto-card:nth-child(4) .projeto-image::after {
+    content: "📝";
+}

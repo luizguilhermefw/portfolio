@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Luiz Guilherme Fernandes Wagner - Portfólio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="projeto-placeholders.css">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -52,57 +53,124 @@
 
         <section id="projetos" class="content">
             <h2>Meus Projetos</h2>
-            <div class="projetos-grid">
+            <div class="projetos-container">
                 <!-- Projeto 1: Formula1 -->
-                <div class="projeto-item">
-                    <h3>Formula1</h3>
-                    <p class="project-subtitle">Campeonato Mundial</p> 
-                    <p>Este projeto é sobre o campeonato mundial de Formula1.</p>    
-                    <div class="projeto-botoes">
-                        <a href="https://github.com/luizguilhermefw/formula1/tree/master" target="_blank" rel="noopener" aria-label="GitHub" class="github-link">
-                            <i class="fab fa-github"></i> 
-                        </a>                    
-                        <button class="btn-demonstracao" data-modal-target="modal-formula1">
-                            Demonstração
-                        </button>
+                <div class="projeto-card">
+                    <div class="projeto-image">
+                        <img src="images/projects/formula1-placeholder.jpg" alt="Projeto Formula1" loading="lazy">
+                        <div class="projeto-overlay">
+                            <div class="projeto-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="projeto-content">
+                        <div class="projeto-header">
+                            <h3>Formula1</h3>
+                            <p class="project-subtitle">Campeonato Mundial</p>
+                        </div>
+                        <p class="projeto-description">Sistema completo para acompanhar o campeonato mundial de Fórmula 1, com estatísticas, resultados e informações detalhadas sobre pilotos e equipes.</p>
+                        
+                        <div class="projeto-actions">
+                            <a href="https://github.com/luizguilhermefw/formula1/tree/master" target="_blank" rel="noopener" aria-label="GitHub" class="btn-secondary">
+                                <i class="fab fa-github"></i> 
+                                Código
+                            </a>                    
+                            <button class="btn-primary" data-modal-target="modal-formula1">
+                                <i class="fas fa-play"></i>
+                                Demo
+                            </button>
+                        </div>
                     </div>
                 </div>
         
                 <!-- Projeto 2: Campanha -->
-                <div class="projeto-item">
-                    <h3>Campanha</h3>
-                    <p class="project-subtitle">Vereador 2024</p> 
-                    <p>Este projeto de campanha pra um candidato a vereador.</p>
-                    <div class="projeto-botoes">
-                        <a href="LINK_DO_SEU_PROJETO_NO_SCRATCH" target="_blank" rel="noopener" aria-label="Scratch" class="github-link"> 
-                            <i class="fab fa-scratch"></i> 
-                        </a>
+                <div class="projeto-card">
+                    <div class="projeto-image">
+                        <img src="images/projects/campanha-placeholder.jpg" alt="Projeto Campanha" loading="lazy">
+                        <div class="projeto-overlay">
+                            <div class="projeto-tags">
+                                <span class="tag">PHP</span>
+                                <span class="tag">MySQL</span>
+                                <span class="tag">Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="projeto-content">
+                        <div class="projeto-header">
+                            <h3>Campanha Política</h3>
+                            <p class="project-subtitle">Vereador 2024</p>
+                        </div>
+                        <p class="projeto-description">Website moderno para campanha política com sistema de propostas, agenda de eventos e canal direto de comunicação com os eleitores.</p>
                         
-                        <button class="btn-demonstracao" data-modal-target="modal-campanha">
-                            Demonstração
-                        </button>
+                        <div class="projeto-actions">
+                            <a href="#" target="_blank" rel="noopener" aria-label="Projeto" class="btn-secondary">
+                                <i class="fas fa-external-link-alt"></i>
+                                Ver Projeto
+                            </a>
+                            <button class="btn-primary" data-modal-target="modal-campanha">
+                                <i class="fas fa-play"></i>
+                                Demo
+                            </button>
+                        </div>
                     </div>
                 </div>
         
-                <!-- Projeto 3: Pagina Institucional -->
-                  <div class="projeto-item">
-                    <h3>Página Institucional</h3>
-                    <p class="project-subtitle">Padrão Motores Elétricos</p> 
-                    <p>Empresa especializada em manutenção de motores elétricos.</p> 
-                    <div class="projeto-botoes">
-                        <a href="https://www.padraomotoreseletricos.com.br/index.php" target="_blank" rel="noopener" class="btn-demonstracao">
-                            Visitar Página
-                        </a>
+                <!-- Projeto 3: Página Institucional -->
+                <div class="projeto-card">
+                    <div class="projeto-image">
+                        <img src="images/projects/padrao-motores-placeholder.jpg" alt="Padrão Motores Elétricos" loading="lazy">
+                        <div class="projeto-overlay">
+                            <div class="projeto-tags">
+                                <span class="tag">PHP</span>
+                                <span class="tag">Responsive</span>
+                                <span class="tag">SEO</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="projeto-content">
+                        <div class="projeto-header">
+                            <h3>Página Institucional</h3>
+                            <p class="project-subtitle">Padrão Motores Elétricos</p>
+                        </div>
+                        <p class="projeto-description">Website corporativo para empresa especializada em manutenção de motores elétricos, com catálogo de serviços e formulário de contato.</p>
+                        
+                        <div class="projeto-actions">
+                            <a href="https://www.padraomotoreseletricos.com.br/index.php" target="_blank" rel="noopener" class="btn-primary">
+                                <i class="fas fa-globe"></i>
+                                Visitar Site
+                            </a>
+                        </div>
                     </div>
                 </div>
         
-                <!-- Projeto 4: Meu Blog -->
-                <div class="projeto-item">
-                    <h3>Pagina de Blog</h3>
-                    <p class="project-subtitle">Sintaxe Criativa</p> 
-                    <p>Página para posts em formato de artigos com tema de tecnologia.</p> 
-                    <div class="projeto-botoes">
-                        <a href="blog" class="btn-demonstracao">Visitar Blog</a>
+                <!-- Projeto 4: Blog -->
+                <div class="projeto-card">
+                    <div class="projeto-image">
+                        <img src="images/projects/blog-placeholder.jpg" alt="Blog Sintaxe Criativa" loading="lazy">
+                        <div class="projeto-overlay">
+                            <div class="projeto-tags">
+                                <span class="tag">PHP</span>
+                                <span class="tag">MySQL</span>
+                                <span class="tag">CMS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="projeto-content">
+                        <div class="projeto-header">
+                            <h3>Blog Pessoal</h3>
+                            <p class="project-subtitle">Sintaxe Criativa</p>
+                        </div>
+                        <p class="projeto-description">Plataforma de blog pessoal com sistema de gerenciamento de conteúdo, comentários e painel administrativo para publicação de artigos sobre tecnologia.</p>
+                        
+                        <div class="projeto-actions">
+                            <a href="blog" class="btn-primary">
+                                <i class="fas fa-blog"></i>
+                                Visitar Blog
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
