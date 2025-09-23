@@ -125,12 +125,15 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleBtnTopoVisibility(); // Chama uma vez para definir o estado inicial
     }
 
-    // Abrir Modais pelos botões de demonstração
-    const modalTriggers = document.querySelectorAll('.btn-demonstracao[data-modal-target]');
+    // Abrir Modais pelos botões de demonstração (novos e antigos)
+    const modalTriggers = document.querySelectorAll('[data-modal-target]');
     modalTriggers.forEach(trigger => {
-        trigger.addEventListener('click', () => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault(); // Previne comportamento padrão
             const modalId = trigger.getAttribute('data-modal-target');
-            abrirModal(modalId);
+            if (modalId) {
+                abrirModal(modalId);
+            }
         });
     });
 
