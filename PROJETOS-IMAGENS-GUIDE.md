@@ -10,7 +10,8 @@ images/
     ├── formula1.jpg         # Imagem do projeto Formula1
     ├── campanha.jpg         # Imagem da campanha política
     ├── padrao-motores.jpg   # Imagem do site Padrão Motores
-    └── blog.jpg             # Imagem do blog
+    ├── blog.jpg             # Imagem do blog
+    └── arcompi.jpg          # Imagem do site Arcompi Compressores
 ```
 
 ## 🖼️ Especificações das Imagens

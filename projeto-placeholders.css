@@ -48,3 +48,12 @@
 .projeto-card:nth-child(4) .projeto-image::after {
     content: "📝";
 }
+
+/* Arcompi Placeholder */
+.projeto-card:nth-child(5) .projeto-image {
+    background: linear-gradient(135deg, #1565c0, #0277bd);
+}
+
+.projeto-card:nth-child(5) .projeto-image::after {
+    content: "🏭";
+}
