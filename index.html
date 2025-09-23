@@ -7,13 +7,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <title>Luiz Guilherme Fernandes Wagner - Portfólio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3G189CJSCG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-3G189CJSCG');
+    </script>
 </head>
 <body>
     <div class="background"></div>
@@ -37,7 +46,7 @@
                 <li><a href="#servicos"><i class="fa-solid fa-laptop-code"></i> Meus serviços contratáveis</a></li>
                 <li><a href="#hard-skills"><i class="fa-solid fa-user-gear"></i> Tecnologias que trabalho</a></li>
                 <li><a href="#sobre-mim"><i class="fa-solid fa-user-astronaut"></i> Sobre mim</a></li>
-                <li><a href="/blog"><i class="fa-solid fa-blog"></i> Blog</a></li>
+                <li><a href="blog"><i class="fa-solid fa-blog"></i> Blog</a></li>
             </ul>
         </nav>
 
@@ -79,6 +88,7 @@
                   <div class="projeto-item">
                     <h3>Página Institucional</h3>
                     <p class="project-subtitle">Padrão Motores Elétricos</p> 
+                    <p>Empresa especializada em manutenção de motores elétricos.</p> 
                     <div class="projeto-botoes">
                         <a href="https://www.padraomotoreseletricos.com.br/index.php" target="_blank" rel="noopener" class="btn-demonstracao">
                             Visitar Página
@@ -86,18 +96,13 @@
                     </div>
                 </div>
         
-                <!-- Projeto 4: Contador de Pessoas -->
+                <!-- Projeto 4: Meu Blog -->
                 <div class="projeto-item">
-                    <h3>Aplicativo Mobile</h3>
-                    <p class="project-subtitle">Contador de Pessoas</p> 
-                    <p>Este projeto de campanha pra um candidato a vereador.</p> 
+                    <h3>Pagina de Blog</h3>
+                    <p class="project-subtitle">Sintaxe Criativa</p> 
+                    <p>Página para posts em formato de artigos com tema de tecnologia.</p> 
                     <div class="projeto-botoes">
-                        <a href="https://github.com/luizguilhermefw/people-counter/tree/master" target="_blank" rel="noopener" aria-label="GitHub" class="github-link">
-                            <i class="fab fa-github"></i> 
-                        </a>
-                        <button class="btn-demonstracao" data-modal-target="modal-contador-pessoas">
-                            Demonstração
-                        </button>
+                        <a href="blog" class="btn-demonstracao">Visitar Blog</a>
                     </div>
                 </div>
             </div>
@@ -136,22 +141,6 @@
                 </div>
             </div>
         
-            <!-- Modal para o vídeo do App Contador de Pessoas -->
-            <div id="modal-contador-pessoas" class="modal">
-                <div class="modal-content">
-                    <span class="fechar" data-modal-close="modal-contador-pessoas">&times;</span>
-                    <iframe
-                        width="560"
-                        height="315"
-                        src="https://www.youtube.com/embed/43ASVdjLvQA" 
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
         </section>
 
         <section id="sobre-mim" class="content">

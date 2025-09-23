@@ -66,6 +66,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3G189CJSCG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-3G189CJSCG');
+    </script>
     <style>
         /* Estilos específicos para o formulário de login dentro da estrutura do blog */
         .login-container {
@@ -134,16 +144,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <header class="blog-header">
-        <h1>Meu Blog</h1> <!-- Pode manter o título do blog ou alterar para "Acesso Administrativo" -->
-        <p>Área de Acesso Restrito</p>
-        <a href="/" class="btn-voltar-portfolio">Voltar ao Portfólio</a>
-        <a href="/blog" class="btn-voltar-portfolio" style="margin-left: 15px;">Voltar ao Blog</a>
+        <div class="header-title-group">
+            <h1>Acesso Restrito</h1>
+            <p>Área Administrativa do Blog</p>
+        </div>
+        <div class="header-actions">
+            <a href="." class="btn-voltar-portfolio">Voltar ao Portfólio</a>
+            <a href="blog" class="btn-voltar-portfolio">Voltar ao Blog</a>
+        </div>
     </header>
 
     <main> 
         <div class="login-container">
             <!-- Imagem do avatar -->
-            <img src="/images_blog/avatarLuiz.png" alt="Admin Avatar" class="login-avatar-image">
+            <img src="images_blog/avatarLuiz.png" alt="Admin Avatar" class="login-avatar-image">
             <h1>Login Administrativo</h1>
             <?php if (!empty($error_message)): ?>
                 <p class="error"><?php echo htmlspecialchars($error_message); ?></p>

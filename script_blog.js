@@ -38,6 +38,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Buscar e renderizar posts do blog ---
     fetchPostsAndRender();
 
+    // --- Renderizar dados da Sidebar ---
+    fetchSidebarDataAndRender();
+
+    // --- Event listener para o formulário de busca ---
+    const searchForm = document.getElementById('search-form');
+    if (searchForm) {
+        searchForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const searchInput = searchForm.querySelector('input[name="q"]');
+            const query = searchInput.value.trim();
+            window.location.href = `blog.html?search=${encodeURIComponent(query)}`;
+        });
+    }
+
     // --- Event listener para os botões de excluir (delegação de evento) ---
     const postsGrid = document.querySelector('.posts-grid');
     if (postsGrid) {
@@ -114,10 +128,36 @@ async function fetchPostsAndRender() {
         return;
     }
 
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get('category');
+    const searchTerm = params.get('search');
+
+    // --- Atualiza o título principal dinamicamente ---
+    const mainTitle = document.querySelector('.blog-main-content h2');
+    if (mainTitle) {
+        if (category) {
+            mainTitle.innerHTML = `Posts na categoria: <span class="filter-term">"${escapeHTML(category)}"</span>`;
+        } else if (searchTerm) {
+            mainTitle.innerHTML = `Resultados da busca por: <span class="filter-term">"${escapeHTML(searchTerm)}"</span>`;
+        } else {
+            mainTitle.textContent = 'Últimos Posts';
+        }
+    }
+    // ------------------------------------------------
+
+    let fetchUrl = 'get_posts.php';
+    const queryParams = [];
+    if (category) queryParams.push(`category=${encodeURIComponent(category)}`);
+    if (searchTerm) queryParams.push(`search=${encodeURIComponent(searchTerm)}`);
+
+    if (queryParams.length > 0) {
+        fetchUrl += `?${queryParams.join('&')}`;
+    }
+
     const adminStatus = await getAdminStatus(); // Verifica o status do admin
     
     try {
-        const response = await fetch('get_posts.php'); // Chama o script PHP
+        const response = await fetch(fetchUrl); // Chama o script PHP com os filtros
         if (!response.ok) {
             // Se a resposta do servidor não for OK (ex: erro 404, 500), lança um erro
             throw new Error(`Erro HTTP: ${response.status} - ${response.statusText}`);
@@ -147,6 +187,50 @@ async function fetchPostsAndRender() {
         // Captura erros de rede ou erros ao processar a resposta
         console.error('Falha ao buscar ou renderizar posts (JavaScript):', error);
         postsGrid.innerHTML = '<p>Ocorreu um erro ao carregar os posts. Verifique o console para mais detalhes.</p>';
+    }
+}
+
+// Função para buscar e renderizar os dados da sidebar (categorias e posts recentes)
+async function fetchSidebarDataAndRender() {
+    const categoryList = document.getElementById('category-list');
+    const recentPostsList = document.getElementById('recent-posts-list');
+
+    if (!categoryList || !recentPostsList) {
+        console.error('Elementos da sidebar não encontrados.');
+        return;
+    }
+
+    try {
+        const response = await fetch('get_sidebar_data.php');
+        if (!response.ok) {
+            throw new Error(`Erro HTTP: ${response.status}`);
+        }
+        const data = await response.json();
+
+        // Limpa as listas antes de popular
+        categoryList.innerHTML = '';
+        recentPostsList.innerHTML = '';
+
+        // Popula a lista de categorias
+        if (data.categories && data.categories.length > 0) {
+            data.categories.forEach(cat => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="blog.html?category=${encodeURIComponent(cat.category)}">${escapeHTML(cat.category)} (${cat.post_count})</a>`;
+                categoryList.appendChild(li);
+            });
+        }
+
+        // Popula a lista de posts recentes
+        if (data.recent_posts && data.recent_posts.length > 0) {
+            data.recent_posts.forEach(post => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="post_individual.html?id=${post.id}">${escapeHTML(post.title)}</a>`;
+                recentPostsList.appendChild(li);
+            });
+        }
+
+    } catch (error) {
+        console.error('Falha ao buscar dados da sidebar:', error);
     }
 }
 

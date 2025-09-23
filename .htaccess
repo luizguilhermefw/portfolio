@@ -14,3 +14,9 @@ RewriteCond %{REQUEST_FILENAME}.html -f
 # 4. Se tudo for verdade, reescreve internamente a URL para o arquivo .html correspondente
 RewriteRule ^(.*)$ $1.html [L]
 
+# Regra para remover a extensão .php das URLs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+

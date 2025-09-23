@@ -9,10 +9,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3G189CJSCG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-3G189CJSCG');
+    </script>
     <style>
         /* Estilos adicionais específicos para a página de post individual, se necessário */
         .single-post-container {
@@ -56,6 +66,26 @@
         .back-to-blog:hover {
             background-color: var(--text-color);
         }
+        #post-interaction {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border-color);
+            text-align: center;
+        }
+        #post-interaction .like-button {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #post-interaction .like-button:hover {
+            /* Você pode ajustar esta cor de hover como preferir */
+            background-color: #e84393; 
+        }
     </style>
 </head>
 <body>
@@ -63,8 +93,11 @@
         <canvas id="constellation-canvas"></canvas>
     </div>
     <header class="blog-header">
-        <h1 id="post-title-header">Carregando Post...</h1> <!-- Será atualizado pelo JS -->
-        <a href="/blog" class="btn-voltar-portfolio" style="margin-top:10px;">Voltar para os Posts</a>
+        <div class="header-title-group">
+            <h1 id="post-title-header">Carregando Post...</h1> <!-- Será atualizado pelo JS -->
+            <p id="post-category-header" style="text-transform: uppercase; font-size: 0.9em; letter-spacing: 1px;"></p>
+        </div>
+        <a href="blog" class="btn-voltar-portfolio">Voltar para os Posts</a>
     </header>
 
     <main>

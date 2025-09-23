@@ -456,3 +456,8 @@ footer p {
         font-size: 2em;
     }
 }
+
+/* Estilo para o termo de filtro no título h2 */
+.filter-term {
+    color: var(--text-color);
+}
