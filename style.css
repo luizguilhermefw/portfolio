@@ -285,6 +285,7 @@ footer {
     padding: 1rem 0;
     width: 100%;
     align-items: start;
+    overflow: visible; /* Permite expansão dos cards */
 }
 
 .projeto-card {
@@ -300,7 +301,11 @@ footer {
     transform: translateY(30px);
     display: flex;
     flex-direction: column;
-    height: 520px; /* Altura fixa para uniformidade */
+    min-height: 520px; /* Altura mínima, mas pode expandir */
+}
+
+.projeto-card.expanded {
+    min-height: auto; /* Remove limitação de altura quando expandido */
 }
 
 @keyframes fadeInUp {
@@ -389,6 +394,7 @@ footer {
     flex-direction: column;
     flex: 1;
     min-height: 0;
+    overflow: visible; /* Permite que o conteúdo expandido seja visível */
 }
 
 .projeto-header h3 {
@@ -439,21 +445,33 @@ footer {
     font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
-    padding: 0.25rem 0;
-    margin-top: 0.5rem;
+    padding: 0.5rem 0;
+    margin-top: 0.75rem;
     transition: all 0.3s ease;
     text-align: left;
     align-self: flex-start;
+    border-radius: 4px;
 }
 
 .btn-read-more:hover {
     color: var(--secondary-color);
     transform: translateX(5px);
+    background: rgba(0, 150, 136, 0.1);
+    padding-left: 0.5rem;
+}
+
+.btn-read-more.expanded {
+    background: rgba(0, 150, 136, 0.15);
+    color: var(--secondary-color);
+    font-weight: 700;
+    padding: 0.5rem;
+    margin-top: 1rem;
 }
 
 .btn-read-more::after {
     content: ' →';
     transition: transform 0.3s ease;
+    font-weight: bold;
 }
 
 .btn-read-more.expanded::after {
@@ -542,7 +560,11 @@ footer {
     .projeto-card {
         margin: 0 0.5rem;
         transform: none;
-        height: 480px; /* Altura ajustada para mobile */
+        min-height: 480px; /* Altura mínima ajustada para mobile */
+    }
+    
+    .projeto-card.expanded {
+        min-height: auto; /* Pode expandir no mobile também */
     }
     
     .projeto-card:hover {
@@ -564,6 +586,11 @@ footer {
     
     .btn-read-more {
         font-size: 0.8rem;
+    }
+    
+    .btn-read-more.expanded {
+        margin-top: 0.75rem;
+        padding: 0.4rem;
     }
 }
 

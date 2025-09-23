@@ -169,20 +169,49 @@ document.addEventListener('DOMContentLoaded', () => {
 // Função para expandir/contrair descrição dos projetos
 function toggleDescription(button) {
     const description = button.parentElement;
+    const card = description.closest('.projeto-card');
     const preview = description.querySelector('.description-preview');
     const full = description.querySelector('.description-full');
     
-    if (full.style.display === 'none') {
-        // Expandir
+    // Colapsar todos os outros cards primeiro
+    document.querySelectorAll('.projeto-card').forEach(otherCard => {
+        if (otherCard !== card && otherCard.classList.contains('expanded')) {
+            const otherDescription = otherCard.querySelector('.projeto-description');
+            const otherButton = otherDescription.querySelector('.btn-read-more');
+            const otherPreview = otherDescription.querySelector('.description-preview');
+            const otherFull = otherDescription.querySelector('.description-full');
+            
+            // Colapsar outro card
+            otherPreview.style.display = 'inline';
+            otherFull.style.display = 'none';
+            otherButton.textContent = 'Leia mais';
+            otherButton.classList.remove('expanded');
+            otherCard.classList.remove('expanded');
+        }
+    });
+    
+    if (full.style.display === 'none' || full.style.display === '') {
+        // Expandir atual
         preview.style.display = 'none';
         full.style.display = 'inline';
         button.textContent = 'Leia menos';
         button.classList.add('expanded');
+        card.classList.add('expanded');
+        
+        // Scroll suave para o card expandido
+        setTimeout(() => {
+            card.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'nearest' 
+            });
+        }, 300);
+        
     } else {
-        // Contrair
+        // Contrair atual
         preview.style.display = 'inline';
         full.style.display = 'none';
         button.textContent = 'Leia mais';
         button.classList.remove('expanded');
+        card.classList.remove('expanded');
     }
 }
