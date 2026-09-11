@@ -1,41 +1,46 @@
 html {
   background: var(--color-background);
-  font-family: var(--font-family-primary);
   color: var(--color-text);
+  font-family: var(--font-family-primary);
+  scroll-behavior: smooth;
 }
 
 body {
   min-width: 20rem;
+  overflow-x: hidden;
   background: var(--color-background);
   line-height: 1.5;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
-.app-shell {
-  display: grid;
+::selection {
+  background: var(--color-primary-soft);
+  color: var(--color-text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+#app {
   min-height: 100vh;
-  padding: 2rem;
-  place-items: center;
 }
 
-.app-intro {
-  width: min(100%, var(--container-max-width));
-  padding: 2rem;
-  border: 1px solid rgb(45 212 191 / 20%);
-  border-radius: 1rem;
-  background: var(--color-surface);
-  text-align: center;
+section[id] {
+  scroll-margin-top: var(--header-height);
 }
 
-.app-intro h1 {
-  color: var(--color-primary);
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  line-height: 1.1;
-}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-.app-intro p {
-  margin-top: 1rem;
-  color: var(--color-text-muted);
-  font-size: 1rem;
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

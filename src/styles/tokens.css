@@ -1,12 +1,45 @@
 :root {
   --color-background: #030b1b;
-  --color-surface: #08172b;
+  --color-background-rgb: 3 11 27;
+  --color-background-elevated: #071426;
+  --color-surface: #0a1a2f;
+  --color-surface-soft: rgb(143 216 222 / 6%);
+  --color-border: rgb(164 208 222 / 12%);
+  --color-border-strong: rgb(164 208 222 / 22%);
   --color-primary: #2dd4bf;
+  --color-primary-rgb: 45 212 191;
+  --color-primary-hover: #42dfca;
+  --color-primary-soft: rgb(45 212 191 / 9%);
+  --color-on-primary: #021713;
   --color-text: #f4f7fb;
-  --color-text-muted: #a8b3c3;
+  --color-text-muted: #aab7c8;
+  --color-text-subtle: #6f8097;
+  --color-focus: #7eeadd;
+
   --font-family-primary: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
-  --container-max-width: 72rem;
+  --container-max-width: 76rem;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-9: 2.5rem;
+  --space-10: 3rem;
+  --space-12: 4rem;
+
+  --radius-sm: 0.55rem;
+  --radius-md: 0.85rem;
+  --radius-lg: 1.25rem;
+
+  --shadow-elevated: 0 1.25rem 4rem rgb(0 4 14 / 38%);
+  --shadow-primary: 0 0.75rem 2.5rem rgb(45 212 191 / 12%);
+
+  --header-height: 4.5rem;
+  --transition-fast: 160ms ease;
 
   color-scheme: dark;
 }
