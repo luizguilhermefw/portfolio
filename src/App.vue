@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import AboutSection from './sections/AboutSection.vue'
+import AppFooter from './components/layout/AppFooter.vue'
 import AppHeader from './components/layout/AppHeader.vue'
 import AylaFlowSection from './sections/AylaFlowSection.vue'
 import HeroSection from './sections/HeroSection.vue'
 import ProjectsSection from './sections/ProjectsSection.vue'
 import ServicesSection from './sections/ServicesSection.vue'
 import TechnologiesSection from './sections/TechnologiesSection.vue'
+import ContactSection from './sections/ContactSection.vue'
 </script>
 
 <template>
@@ -17,5 +19,7 @@ import TechnologiesSection from './sections/TechnologiesSection.vue'
     <TechnologiesSection />
     <ServicesSection />
     <AboutSection />
+    <ContactSection />
   </main>
+  <AppFooter />
 </template>
