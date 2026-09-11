@@ -3,6 +3,7 @@ import AppHeader from './components/layout/AppHeader.vue'
 import AylaFlowSection from './sections/AylaFlowSection.vue'
 import HeroSection from './sections/HeroSection.vue'
 import ProjectsSection from './sections/ProjectsSection.vue'
+import ServicesSection from './sections/ServicesSection.vue'
 import TechnologiesSection from './sections/TechnologiesSection.vue'
 </script>
 
@@ -13,5 +14,6 @@ import TechnologiesSection from './sections/TechnologiesSection.vue'
     <ProjectsSection />
     <AylaFlowSection />
     <TechnologiesSection />
+    <ServicesSection />
   </main>
 </template>
