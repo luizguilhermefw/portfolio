@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AboutSection from './sections/AboutSection.vue'
 import AppHeader from './components/layout/AppHeader.vue'
 import AylaFlowSection from './sections/AylaFlowSection.vue'
 import HeroSection from './sections/HeroSection.vue'
@@ -15,5 +16,6 @@ import TechnologiesSection from './sections/TechnologiesSection.vue'
     <AylaFlowSection />
     <TechnologiesSection />
     <ServicesSection />
+    <AboutSection />
   </main>
 </template>
