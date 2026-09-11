@@ -4,6 +4,7 @@ db_config.php
 # Arquivos de dependências 
 /vendor/
 /node_modules/
+/dist/
 
 # Arquivos de log e temporários
 *.log
