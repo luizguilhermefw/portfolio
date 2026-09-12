@@ -1,7 +1,9 @@
 import arcompiImage from '../../images/projects/img-arcompi.webp'
+import aylaFlowImage from '../../images/projects/img-aylaflow.png'
 import blogImage from '../../images/projects/img-blog.webp'
 import campaignImage from '../../images/projects/img-jogo-campanha.webp'
 import formulaOneImage from '../../images/projects/img-formula1.webp'
+import horaDoLivroImage from '../../images/projects/img-horadolivro.png'
 import padraoImage from '../../images/projects/img-padrao.webp'
 
 export type ProjectFeatureLevel = 'primary' | 'secondary' | false
@@ -43,6 +45,8 @@ export const projects: Project[] = [
       'Idempotência, retry/backoff e abstração de provider',
       'APIs REST com JWT, campanhas, opt-out e logs de auditoria',
     ],
+    image: aylaFlowImage,
+    imageAlt: 'Dashboard do AylaFlow',
     links: [
       {
         label: 'Backend no GitHub',
@@ -65,6 +69,8 @@ export const projects: Project[] = [
     category: 'E-commerce / Plataforma de livros',
     description: 'Aplicação web voltada a livros e e-commerce, construída com Vue e Firebase.',
     technologies: ['Vue 3', 'Firebase', 'Pinia', 'Vue Router', 'Google Authentication'],
+    image: horaDoLivroImage,
+    imageAlt: 'Dashboard do Hora do Livro',
     links: [],
     featured: 'secondary',
   },

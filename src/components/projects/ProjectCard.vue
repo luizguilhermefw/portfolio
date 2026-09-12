@@ -48,10 +48,6 @@ const hiddenTechnologies = computed(() => {
 
       <p class="project-card__description">{{ project.description }}</p>
 
-      <ul v-if="project.highlights?.length" class="project-card__highlights" aria-label="Destaques técnicos">
-        <li v-for="highlight in project.highlights" :key="highlight">{{ highlight }}</li>
-      </ul>
-
       <ul class="project-card__technologies" aria-label="Tecnologias utilizadas">
         <li v-for="technology in visibleTechnologies" :key="technology">{{ technology }}</li>
         <li
@@ -84,7 +80,7 @@ const hiddenTechnologies = computed(() => {
 <style scoped>
 .project-card {
   display: flex;
-  height: 100%;
+  height: 34rem;
   min-width: 0;
   overflow: hidden;
   border: 1px solid var(--color-border);
@@ -111,24 +107,18 @@ const hiddenTechnologies = computed(() => {
 
 .project-card__visual {
   position: relative;
-  min-height: 11rem;
+  height: 12rem;
+  min-height: 12rem;
   overflow: hidden;
   border-bottom: 1px solid var(--color-border);
   background: var(--color-background);
-}
-
-.project-card--primary .project-card__visual {
-  min-height: 16rem;
-}
-
-.project-card--secondary .project-card__visual {
-  min-height: 14rem;
+  flex: 0 0 12rem;
 }
 
 .project-card__visual img {
   width: 100%;
   height: 100%;
-  min-height: inherit;
+  min-height: 0;
   object-fit: cover;
   object-position: top center;
   transition: opacity var(--transition-fast);
@@ -192,13 +182,9 @@ const hiddenTechnologies = computed(() => {
 
 .project-card__content {
   display: flex;
-  padding: var(--space-6);
+  padding: var(--space-5);
   flex: 1;
   flex-direction: column;
-}
-
-.project-card--primary .project-card__content {
-  padding: clamp(var(--space-6), 3vw, var(--space-8));
 }
 
 .project-card__status,
@@ -221,62 +207,32 @@ const hiddenTechnologies = computed(() => {
 .project-card h3 {
   margin-top: var(--space-2);
   color: var(--color-text);
-  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
   letter-spacing: -0.035em;
   line-height: 1.15;
 }
 
-.project-card--primary h3 {
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-}
-
 .project-card__description {
-  margin-top: var(--space-4);
+  margin-top: var(--space-3);
   color: var(--color-text-muted);
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
-
-.project-card__highlights {
-  display: grid;
-  margin-top: var(--space-5);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-3) var(--space-5);
-}
-
-.project-card__highlights li {
-  position: relative;
-  padding-left: var(--space-4);
-  color: var(--color-text-muted);
-  font-size: 0.8125rem;
-  line-height: 1.55;
-}
-
-.project-card__highlights li::before {
-  position: absolute;
-  top: 0.6em;
-  left: 0;
-  width: 0.3rem;
-  height: 0.3rem;
-  border-radius: 50%;
-  background: var(--color-primary);
-  content: '';
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
 
 .project-card__technologies {
   display: flex;
-  margin-top: var(--space-5);
+  margin-top: var(--space-4);
   flex-wrap: wrap;
   gap: var(--space-2);
 }
 
 .project-card__technologies li {
-  padding: 0.35rem 0.6rem;
+  padding: 0.3rem 0.55rem;
   border: 1px solid var(--color-border);
   border-radius: 999px;
   background: var(--color-surface-soft);
   color: var(--color-text-muted);
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   line-height: 1;
 }
 
@@ -287,15 +243,15 @@ const hiddenTechnologies = computed(() => {
 .project-card__links {
   display: flex;
   margin-top: auto;
-  padding-top: var(--space-6);
+  padding-top: var(--space-4);
   flex-wrap: wrap;
-  gap: var(--space-3);
+  gap: var(--space-2);
 }
 
 .project-card__link {
   display: inline-flex;
-  min-height: 2.75rem;
-  padding-inline: var(--space-4);
+  min-height: 2.5rem;
+  padding-inline: var(--space-3);
   align-items: center;
   gap: var(--space-2);
   border: 1px solid var(--color-border-strong);
@@ -327,13 +283,12 @@ const hiddenTechnologies = computed(() => {
   color: var(--color-on-primary);
 }
 
-@media (max-width: 40rem) {
-  .project-card__highlights {
-    grid-template-columns: 1fr;
+@media (max-width: 48rem) {
+  .project-card {
+    height: auto;
   }
 
-  .project-card__content,
-  .project-card--primary .project-card__content {
+  .project-card__content {
     padding: var(--space-5);
   }
 }
