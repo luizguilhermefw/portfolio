@@ -12,7 +12,7 @@ export const solutions: Solution[] = [
     index: '01',
     title: 'Integrações',
     description:
-      'Conexão entre os produtos Ayla, sistemas de gestão, APIs e plataformas externas para fazer a informação circular pela operação.',
+      'Conexão entre o AylaFlow, sistemas de gestão, APIs e plataformas externas para fazer a informação circular pela operação.',
     capabilities: ['REST APIs', 'ERP / CRM', 'E-commerce', 'Webhooks', 'Sincronização de dados'],
   },
   {
