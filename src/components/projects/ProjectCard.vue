@@ -201,7 +201,7 @@ const hiddenTechnologies = computed(() => {
 }
 
 .project-card__category {
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
 }
 
 .project-card h3 {
