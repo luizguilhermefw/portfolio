@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import profileImage from '../../images/perfil-luiz.jpeg'
+</script>
+
 <template>
   <section id="inicio" class="hero" aria-labelledby="hero-title">
     <div class="hero__atmosphere" aria-hidden="true"></div>
@@ -29,9 +33,15 @@
         </div>
       </div>
 
-      <div class="hero__orbit" aria-hidden="true">
-        <span class="hero__orbit-line"></span>
-        <span class="hero__orbit-point"></span>
+      <div class="hero__portrait">
+        <img
+          :src="profileImage"
+          alt="Luiz Guilherme Fernandes Wagner"
+          width="1165"
+          height="654"
+          fetchpriority="high"
+          decoding="async"
+        />
       </div>
     </div>
   </section>
@@ -208,48 +218,35 @@
   color: var(--color-primary);
 }
 
-.hero__orbit {
+.hero__portrait {
   position: relative;
-  width: min(25vw, 18rem);
-  aspect-ratio: 1;
+  isolation: isolate;
+  width: 100%;
+  max-width: 24rem;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
   justify-self: end;
-}
-
-.hero__orbit-line {
-  position: absolute;
-  inset: 0;
   border: 1px solid rgb(var(--color-primary-rgb) / 22%);
   border-radius: 50%;
-  transform: rotate(-24deg) scaleY(0.42);
+  box-shadow: 0 0 3rem rgb(var(--color-primary-rgb) / 8%);
 }
 
-.hero__orbit-line::before,
-.hero__orbit-line::after {
+.hero__portrait::before {
   position: absolute;
+  z-index: -1;
+  inset: -0.75rem;
+  border: 1px solid rgb(var(--color-primary-rgb) / 10%);
   border-radius: 50%;
   content: '';
+  pointer-events: none;
 }
 
-.hero__orbit-line::before {
-  inset: 24%;
-  border: 1px solid rgb(255 255 255 / 10%);
-}
-
-.hero__orbit-line::after {
-  inset: 42%;
-  background: var(--color-primary);
-  box-shadow: 0 0 2.5rem rgb(var(--color-primary-rgb) / 32%);
-}
-
-.hero__orbit-point {
-  position: absolute;
-  top: 49%;
-  right: -0.2rem;
-  width: 0.45rem;
-  height: 0.45rem;
+.hero__portrait img {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  background: var(--color-text);
-  box-shadow: 0 0 1.25rem rgb(255 255 255 / 36%);
+  object-fit: cover;
+  object-position: center;
 }
 
 @media (max-width: 56rem) {
@@ -257,13 +254,8 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .hero__orbit {
-    position: absolute;
-    z-index: -1;
-    top: 12%;
-    right: -5rem;
-    width: 18rem;
-    opacity: 0.5;
+  .hero__portrait {
+    justify-self: center;
   }
 }
 

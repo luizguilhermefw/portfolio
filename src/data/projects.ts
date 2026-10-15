@@ -49,6 +49,12 @@ export const projects: Project[] = [
     imageAlt: 'Dashboard do AylaFlow',
     links: [
       {
+        label: 'Visitar site',
+        url: 'https://www.aylaflow.com.br/',
+        kind: 'live',
+        external: true,
+      },
+      {
         label: 'Backend no GitHub',
         url: 'https://github.com/luizguilhermefw/client-reactivation',
         kind: 'repository',
