@@ -17,8 +17,13 @@ import AylaFlowProductVisual from '../components/aylaflow/AylaFlowProductVisual.
           </p>
 
           <div class="aylaflow__actions">
-            <a class="aylaflow__button aylaflow__button--primary" href="#contato">
-              Quero conhecer o AylaFlow
+            <a
+              class="aylaflow__button aylaflow__button--primary"
+              href="https://www.aylaflow.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Acessar AylaFlow
             </a>
             <a class="aylaflow__button aylaflow__button--secondary" href="#projetos">
               Ver case técnico
@@ -117,8 +122,13 @@ import AylaFlowProductVisual from '../components/aylaflow/AylaFlowProductVisual.
           <p>Relacionamento contínuo começa com organização.</p>
           <h3>Conheça o AylaFlow e converse sobre o cenário da sua empresa.</h3>
         </div>
-        <a class="aylaflow__button aylaflow__button--primary" href="#contato">
-          Quero conhecer o AylaFlow
+        <a
+          class="aylaflow__button aylaflow__button--primary"
+          href="https://www.aylaflow.com.br/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Conhecer o AylaFlow
         </a>
       </div>
     </div>

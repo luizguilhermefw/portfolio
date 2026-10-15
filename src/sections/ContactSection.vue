@@ -11,11 +11,6 @@
       </header>
 
       <div class="contact__paths">
-        <div class="contact__audiences" aria-label="Motivos para entrar em contato">
-          <p><span aria-hidden="true">01</span>Para oportunidades</p>
-          <p><span aria-hidden="true">02</span>Para AylaFlow e integrações</p>
-        </div>
-
         <nav class="contact__links" aria-label="Canais de contato">
           <a href="mailto:ziulprof@gmail.com">
             <span>E-mail</span>
@@ -106,34 +101,8 @@
 }
 
 .contact__paths {
-  display: grid;
   margin-top: clamp(4rem, 9vw, 7rem);
   border-top: 1px solid var(--color-border-strong);
-  grid-template-columns: minmax(14rem, 0.55fr) minmax(0, 1.45fr);
-  gap: clamp(2.5rem, 8vw, 7rem);
-}
-
-.contact__audiences {
-  display: grid;
-  padding-top: var(--space-8);
-  align-content: start;
-  gap: var(--space-5);
-}
-
-.contact__audiences p {
-  display: grid;
-  color: var(--color-text-muted);
-  font-size: 0.875rem;
-  line-height: 1.45;
-  grid-template-columns: 2rem minmax(0, 1fr);
-  gap: var(--space-3);
-}
-
-.contact__audiences span {
-  color: var(--color-primary);
-  font-size: 0.75rem;
-  font-weight: 650;
-  letter-spacing: 0.06em;
 }
 
 .contact__links a {
@@ -193,8 +162,7 @@
 }
 
 @media (max-width: 48rem) {
-  .contact__heading,
-  .contact__paths {
+  .contact__heading {
     grid-template-columns: 1fr;
   }
 
@@ -202,13 +170,6 @@
     gap: var(--space-6);
   }
 
-  .contact__paths {
-    gap: var(--space-8);
-  }
-
-  .contact__audiences {
-    padding-top: var(--space-6);
-  }
 }
 
 @media (max-width: 36rem) {
