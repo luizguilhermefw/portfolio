@@ -22,11 +22,17 @@ export interface Project {
   category: string
   description: string
   technologies: string[]
-  technologyBadgeLimit?: number
-  highlights?: string[]
+  technicalHighlights?: string[]
+  securityHighlights?: string[]
   image?: string
   imageAlt?: string
   links: ProjectLink[]
+  demo?: {
+    label: string
+    videoId: string
+    aspectRatio: '16:9' | '9:16'
+    title: string
+  }
   featured: ProjectFeatureLevel
 }
 
@@ -36,14 +42,18 @@ export const projects: Project[] = [
     name: 'AylaFlow',
     category: 'SaaS de automação comercial',
     description:
-      'Plataforma SaaS para automação de comunicação e reativação de clientes, com arquitetura multi-tenant, campanhas e integração com WhatsApp.',
-    technologies: ['Vue 3', 'TypeScript', 'NestJS', 'PostgreSQL', 'Prisma', 'JWT', 'REST APIs'],
-    technologyBadgeLimit: 5,
-    highlights: [
-      'Arquitetura multi-tenant com isolamento por companyId',
+      'Plataforma de automação comercial criada para ajudar empresas a manter relacionamento com sua base de clientes, recuperar oportunidades de venda e executar campanhas de forma organizada e recorrente.',
+    technologies: ['Vue 3', 'TypeScript', 'NestJS', 'PostgreSQL', 'Prisma'],
+    technicalHighlights: [
+      'APIs REST para campanhas e integração com WhatsApp',
       'Fila persistente e processamento assíncrono por worker',
       'Idempotência, retry/backoff e abstração de provider',
-      'APIs REST com JWT, campanhas, opt-out e logs de auditoria',
+    ],
+    securityHighlights: [
+      'Autenticação JWT',
+      'Arquitetura multi-tenant com isolamento por companyId',
+      'Controle de consentimento e opt-out',
+      'Logs de auditoria',
     ],
     image: aylaFlowImage,
     imageAlt: 'Dashboard do AylaFlow',
@@ -54,27 +64,25 @@ export const projects: Project[] = [
         kind: 'live',
         external: true,
       },
-      {
-        label: 'Backend no GitHub',
-        url: 'https://github.com/luizguilhermefw/client-reactivation',
-        kind: 'repository',
-        external: true,
-      },
-      {
-        label: 'Frontend no GitHub',
-        url: 'https://github.com/luizguilhermefw/aylaflow-frontend',
-        kind: 'repository',
-        external: true,
-      },
     ],
     featured: 'primary',
   },
   {
     id: 'hora-do-livro',
     name: 'Hora do Livro',
-    category: 'E-commerce / Plataforma de livros',
-    description: 'Aplicação web voltada a livros e e-commerce, construída com Vue e Firebase.',
-    technologies: ['Vue 3', 'Firebase', 'Pinia', 'Vue Router', 'Google Authentication'],
+    category: 'Plataforma de gestão e vendas para livrarias',
+    description: 'Plataforma completa para operação de livraria, integrando e-commerce, retaguarda administrativa e PDV físico. A solução permite centralizar vendas, estoque, usuários e indicadores comerciais em um único ambiente.',
+    technologies: ['Vue 3', 'Firebase', 'Pinia', 'Vue Router', 'Google Authentication', 'Cloud Functions'],
+    technicalHighlights: [
+      'E-commerce para venda de livros',
+      'Retaguarda administrativa',
+      'Controle de estoque',
+      'Dashboard de vendas',
+      'Gerenciamento de usuários',
+      'PDV para vendas presenciais',
+      'Autenticação de usuários',
+      'Backend serverless com Cloud Functions',
+    ],
     image: horaDoLivroImage,
     imageAlt: 'Dashboard do Hora do Livro',
     links: [],
@@ -85,8 +93,14 @@ export const projects: Project[] = [
     name: 'Arcompi Compressores e Automação',
     category: 'Website institucional',
     description:
-      'Website corporativo para uma empresa de ar comprimido industrial, com serviços, auditoria energética e área de especialistas.',
-    technologies: ['PHP', 'MySQL', 'Bootstrap', 'SEO'],
+      'Presença digital desenvolvida para uma empresa do setor de ar comprimido industrial, apresentando serviços, soluções e experiência de mercado de forma profissional, responsiva e orientada à geração de novos contatos comerciais.',
+    technologies: ['Vue', 'Bootstrap'],
+    technicalHighlights: [
+      'Interface responsiva',
+      'Estrutura institucional',
+      'Organização de serviços e soluções',
+      'SEO',
+    ],
     image: arcompiImage,
     imageAlt: 'Página do projeto Arcompi Compressores e Automação',
     links: [
@@ -104,8 +118,9 @@ export const projects: Project[] = [
     name: 'Padrão Motores Elétricos',
     category: 'Website institucional',
     description:
-      'Website corporativo para uma empresa especializada em manutenção de motores elétricos, com catálogo de serviços e solicitação de orçamento.',
-    technologies: ['PHP', 'Responsividade', 'SEO'],
+      'Site institucional desenvolvido para fortalecer a presença digital da empresa, apresentar seus serviços especializados e facilitar o contato de clientes interessados em manutenção e soluções para motores elétricos.',
+    technologies: ['PHP', 'JavaScript', 'CSS'],
+    technicalHighlights: ['Layout responsivo', 'SEO'],
     image: padraoImage,
     imageAlt: 'Página do projeto Padrão Motores Elétricos',
     links: [
@@ -123,8 +138,9 @@ export const projects: Project[] = [
     name: 'Blog Pessoal',
     category: 'Sintaxe Criativa',
     description:
-      'Blog pessoal com gerenciamento de conteúdo e painel administrativo para publicação de artigos sobre tecnologia.',
-    technologies: ['PHP', 'MySQL', 'CMS'],
+      'Plataforma de conteúdo criada para publicação e organização de artigos, com estrutura própria para gerenciamento das publicações e evolução contínua do conteúdo.',
+    technologies: ['PHP', 'MySQL', 'JavaScript'],
+    technicalHighlights: ['Gerenciamento de conteúdo e painel administrativo para publicação de artigos'],
     image: blogImage,
     imageAlt: 'Página do blog Sintaxe Criativa',
     links: [
@@ -140,10 +156,15 @@ export const projects: Project[] = [
   {
     id: 'formula-one',
     name: 'Formula1',
-    category: 'Campeonato mundial',
+    category: 'Aplicação em Flutter',
     description:
-      'Projeto web para acompanhar estatísticas, resultados e informações sobre pilotos, equipes e corridas de Fórmula 1.',
-    technologies: ['HTML', 'CSS', 'JavaScript'],
+      'Projeto desenvolvido para explorar uma experiência digital dedicada ao universo da Fórmula 1, organizando conteúdos e informações do campeonato em uma interface construída em Flutter.',
+    technologies: ['Flutter'],
+    technicalHighlights: [
+      'Interface em Flutter',
+      'Navegação entre conteúdos',
+      'Organização de informações do campeonato',
+    ],
     image: formulaOneImage,
     imageAlt: 'Página do projeto Formula1',
     links: [
@@ -154,18 +175,31 @@ export const projects: Project[] = [
         external: true,
       },
     ],
+    demo: {
+      label: 'Ver demonstração',
+      videoId: '43ASVdjLvQA',
+      aspectRatio: '9:16',
+      title: 'Formula1 — Demonstração',
+    },
     featured: false,
   },
   {
     id: 'campanha-politica',
     name: 'Campanha Política',
-    category: 'Website de campanha · 2024',
+    category: 'Experiência interativa · Campanha 2024',
     description:
-      'Website de campanha com propostas, agenda de eventos, canal de comunicação, galeria e notícias.',
-    technologies: ['PHP', 'MySQL', 'Bootstrap'],
+      'Solução interativa desenvolvida para uma campanha eleitoral local, utilizando uma gameplay como formato de comunicação para ampliar o engajamento e apresentar a mensagem do candidato de maneira diferenciada.',
+    technologies: [],
+    technicalHighlights: ['Experiência interativa', 'Protótipo visual', 'Narrativa e interação'],
     image: campaignImage,
     imageAlt: 'Página do projeto de campanha política',
     links: [],
+    demo: {
+      label: 'Ver demonstração',
+      videoId: 'CtvEN1cpFps',
+      aspectRatio: '16:9',
+      title: 'Campanha Política — Demonstração',
+    },
     featured: false,
   },
 ]

@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref } from 'vue'
+import ProjectDetailsModal from './ProjectDetailsModal.vue'
+import ProjectDemoModal from './ProjectDemoModal.vue'
 
 import type { Project } from '../../data/projects'
 
 type ProjectCardVariant = 'primary' | 'secondary' | 'standard'
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     project: Project
     variant?: ProjectCardVariant
@@ -15,15 +17,8 @@ const props = withDefaults(
   },
 )
 
-const visibleTechnologies = computed(() => {
-  const limit = props.project.technologyBadgeLimit ?? props.project.technologies.length
-  return props.project.technologies.slice(0, limit)
-})
-
-const hiddenTechnologies = computed(() => {
-  const limit = props.project.technologyBadgeLimit ?? props.project.technologies.length
-  return props.project.technologies.slice(limit)
-})
+const detailsModal = ref<InstanceType<typeof ProjectDetailsModal> | null>(null)
+const demoModal = ref<InstanceType<typeof ProjectDemoModal> | null>(null)
 </script>
 
 <template>
@@ -48,18 +43,7 @@ const hiddenTechnologies = computed(() => {
 
       <p class="project-card__description">{{ project.description }}</p>
 
-      <ul class="project-card__technologies" aria-label="Tecnologias utilizadas">
-        <li v-for="technology in visibleTechnologies" :key="technology">{{ technology }}</li>
-        <li
-          v-if="hiddenTechnologies.length"
-          class="project-card__technology-more"
-          :aria-label="`Outras tecnologias: ${hiddenTechnologies.join(', ')}`"
-        >
-          +{{ hiddenTechnologies.length }}
-        </li>
-      </ul>
-
-      <div v-if="project.links.length" class="project-card__links">
+      <div class="project-card__links">
         <a
           v-for="link in project.links"
           :key="link.url"
@@ -72,15 +56,36 @@ const hiddenTechnologies = computed(() => {
           {{ link.label }}
           <span v-if="link.external" aria-hidden="true">↗</span>
         </a>
+        <button
+          v-if="project.demo"
+          type="button"
+          class="project-card__link project-card__link--live"
+          aria-haspopup="dialog"
+          :aria-label="`${project.demo.label} de ${project.name}`"
+          @click="demoModal?.open()"
+        >
+          {{ project.demo.label }}
+        </button>
+        <button
+          type="button"
+          class="project-card__link"
+          aria-haspopup="dialog"
+          :aria-label="`Detalhes técnicos de ${project.name}`"
+          @click="detailsModal?.open()"
+        >
+          Detalhes técnicos
+        </button>
       </div>
     </div>
   </article>
+  <ProjectDetailsModal ref="detailsModal" :project="project" />
+  <ProjectDemoModal v-if="project.demo" ref="demoModal" :demo="project.demo" :project-id="project.id" />
 </template>
 
 <style scoped>
 .project-card {
   display: flex;
-  height: 34rem;
+  height: 100%;
   min-width: 0;
   overflow: hidden;
   border: 1px solid var(--color-border);
@@ -219,27 +224,6 @@ const hiddenTechnologies = computed(() => {
   line-height: 1.6;
 }
 
-.project-card__technologies {
-  display: flex;
-  margin-top: var(--space-4);
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.project-card__technologies li {
-  padding: 0.3rem 0.55rem;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background: var(--color-surface-soft);
-  color: var(--color-text-muted);
-  font-size: 0.6875rem;
-  line-height: 1;
-}
-
-.project-card__technologies .project-card__technology-more {
-  color: var(--color-primary);
-}
-
 .project-card__links {
   display: flex;
   margin-top: auto;
@@ -250,13 +234,15 @@ const hiddenTechnologies = computed(() => {
 
 .project-card__link {
   display: inline-flex;
-  min-height: 2.5rem;
+  min-height: 2.75rem;
   padding-inline: var(--space-3);
   align-items: center;
   gap: var(--space-2);
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
   color: var(--color-text);
+  background: transparent;
+  cursor: pointer;
   font-size: 0.8125rem;
   font-weight: 650;
   text-decoration: none;
