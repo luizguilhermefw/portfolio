@@ -2,6 +2,7 @@ import arcompiImage from '../../images/projects/img-arcompi.webp'
 import aylaFlowImage from '../../images/projects/img-aylaflow.png'
 import blogImage from '../../images/projects/img-blog.webp'
 import campaignImage from '../../images/projects/img-jogo-campanha.webp'
+import dashboardImage from '../../images/projects/imagem-dashboard-app.png'
 import formulaOneImage from '../../images/projects/img-formula1.webp'
 import horaDoLivroImage from '../../images/projects/img-horadolivro.png'
 import padraoImage from '../../images/projects/img-padrao.webp'
@@ -87,6 +88,42 @@ export const projects: Project[] = [
     imageAlt: 'Dashboard do Hora do Livro',
     links: [],
     featured: 'secondary',
+  },
+  {
+    id: 'dashboard-indicadores',
+    name: 'Dashboards de Indicadores',
+    category: 'Acompanhamento de resultados e desempenho',
+    description:
+      'Desenvolvimento de painéis personalizados para transformar dados operacionais em informações claras e úteis para o negócio, facilitando o acompanhamento de resultados, desempenho, metas e evolução ao longo do tempo.',
+    technologies: ['JavaScript', 'HTML', 'CSS', 'Chart.js', 'SheetJS / XLSX', 'Papa Parse', 'Flatpickr', 'html2canvas', 'jsPDF'],
+    technicalHighlights: [
+      'Painéis e indicadores personalizáveis conforme os dados e o escopo de cada operação',
+      'Importação de dados de planilhas CSV e XLSX',
+      'Cálculo dinâmico de indicadores e gráficos interativos',
+      'Comparativos mensais e evolução histórica',
+      'Segmentação por cliente e indicadores por loja, tipo e módulo',
+      'Filtros por período e acompanhamento de SLA',
+      'Exportação de apresentações em PDF e HTML',
+      'Apresentação em slides e personalização de logos',
+      'Recursos e adaptações definidos conforme a necessidade e o escopo contratado',
+    ],
+    securityHighlights: [
+      'Processamento dos dados importados no navegador',
+      'Persistência local dos dados em IndexedDB e das preferências em localStorage',
+      'Exportação de backup e restauração de dados locais',
+      'Controle para limpeza dos dados armazenados no navegador',
+    ],
+    image: dashboardImage,
+    imageAlt: 'Dashboard de indicadores com métricas, gráficos e evolução histórica',
+    links: [
+      {
+        label: 'Ver código',
+        url: 'https://github.com/luizguilhermefw/rmr-dashboard',
+        kind: 'repository',
+        external: true,
+      },
+    ],
+    featured: false,
   },
   {
     id: 'arcompi',
