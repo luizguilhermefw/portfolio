@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client"
+  output = "../src/generated/prisma"
+  moduleFormat = "esm"
+  importFileExtension = "js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model Admin {
+  id           String         @id @default(uuid()) @db.Uuid
+  legacyId     Int?           @unique
+  username     String         @unique
+  passwordHash String
+  createdAt    DateTime       @default(now()) @db.Timestamptz(3)
+  sessions     AdminSession[]
+}
+
+model AdminSession {
+  id        String   @id @default(uuid()) @db.Uuid
+  tokenHash String   @unique
+  adminId   String   @db.Uuid
+  expiresAt DateTime @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  admin     Admin    @relation(fields: [adminId], references: [id], onDelete: Cascade)
+
+  @@index([expiresAt])
+}
+
+model Category {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String
+  slug      String   @unique
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  posts     Post[]
+}
+
+model Post {
+  id              String     @id @default(uuid()) @db.Uuid
+  legacyId        Int?       @unique
+  title           String
+  slug            String     @unique
+  contentHtml     String     @db.Text
+  excerpt         String?
+  legacyCategory  String?
+  categoryId      String?    @db.Uuid
+  imageUrl        String?
+  createdAt       DateTime   @default(now()) @db.Timestamptz(3)
+  updatedAt       DateTime   @updatedAt @db.Timestamptz(3)
+  publishedAt     DateTime?  @db.Timestamptz(3)
+  status          PostStatus @default(DRAFT)
+  metaDescription String?
+  category        Category?  @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  @@index([status, publishedAt, createdAt, id])
+}
