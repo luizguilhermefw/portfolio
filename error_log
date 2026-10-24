@@ -1,5 +1,0 @@
-[02-Jul-2025 22:15:53 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home4/pais3642/public_html/get_posts.php:8
-Stack trace:
-#0 /home4/pais3642/public_html/get_posts.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'pais3642_portfo...')
-#1 {main}
-  thrown in /home4/pais3642/public_html/get_posts.php on line 8
