@@ -45,7 +45,7 @@ const demoModal = ref<InstanceType<typeof ProjectDemoModal> | null>(null)
 
       <div class="project-card__links">
         <a
-          v-for="link in project.links"
+          v-for="link in project.links.filter((link) => link.kind !== 'repository')"
           :key="link.url"
           class="project-card__link"
           :class="`project-card__link--${link.kind}`"
@@ -75,6 +75,20 @@ const demoModal = ref<InstanceType<typeof ProjectDemoModal> | null>(null)
         >
           Detalhes técnicos
         </button>
+        <a
+          v-for="link in project.links.filter((link) => link.kind === 'repository')"
+          :key="link.url"
+          class="project-card__link project-card__link--repository"
+          :href="link.url"
+          :target="link.external ? '_blank' : undefined"
+          :rel="link.external ? 'noopener noreferrer' : undefined"
+          :aria-label="`Ver código de ${project.name} no GitHub`"
+          title="Ver código no GitHub"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+            <path d="M12 .297C5.37.297 0 5.67 0 12.297c0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.043-1.61-4.043-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.838 1.237 1.838 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.305-5.467-1.334-5.467-5.93 0-1.31.469-2.381 1.236-3.221-.123-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.652.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.622-5.479 5.919.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.597 24 12.297c0-6.627-5.373-12-12-12" />
+          </svg>
+        </a>
       </div>
     </div>
   </article>
@@ -262,6 +276,26 @@ const demoModal = ref<InstanceType<typeof ProjectDemoModal> | null>(null)
   border-color: transparent;
   background: var(--color-primary);
   color: var(--color-on-primary);
+}
+
+.project-card__link--repository {
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  flex: 0 0 2.75rem;
+  justify-content: center;
+}
+
+.project-card__link--repository svg {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+
+.project-card__link--repository:focus-visible,
+.project-card__link--repository:active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
 }
 
 .project-card__link--live:hover {
