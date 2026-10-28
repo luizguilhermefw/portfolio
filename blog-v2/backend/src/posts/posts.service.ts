@@ -13,8 +13,9 @@ const publicSummary = {
 function searchWhere(search?: string): Prisma.PostWhereInput {
   const term = search?.trim();
   return term ? { OR: [
-    { title: { contains: term, mode: 'insensitive' } },
-    { contentHtml: { contains: term, mode: 'insensitive' } },
+    // MySQL case-insensitive search requires a _ci collation on these columns.
+    { title: { contains: term } },
+    { contentHtml: { contains: term } },
   ] } : {};
 }
 function pagination<T>(items: T[], total: number, page: number, limit: number) {

@@ -1,6 +1,6 @@
 # Blog V2 — backend
 
-Fundação isolada NestJS 11 + TypeScript + Prisma 7 + PostgreSQL, ainda fora de produção. O portfólio e o blog PHP não são modificados. Arquitetura: [documento](../../docs/blog-v2-architecture.md).
+Fundação isolada NestJS 11 + TypeScript + Prisma 7 + MySQL, ainda fora de produção. O portfólio e o blog PHP não são modificados. Arquitetura: [documento](../../docs/blog-v2-architecture.md).
 
 ## Desenvolvimento
 
@@ -14,11 +14,11 @@ npm run prisma:generate
 npm run dev
 ```
 
-O runtime e `prisma.config.ts` leem `.env` local usando Node; variáveis do ambiente têm precedência. Nunca versionar credenciais. A URL da CLI fica em `prisma.config.ts`, não no schema. Prisma, client e adapter-pg estão alinhados em 7.10.1; PostgreSQL usa o driver pg.
+O runtime e `prisma.config.ts` leem `.env` local usando Node; variáveis do ambiente têm precedência. Nunca versionar credenciais. A URL da CLI fica em `prisma.config.ts`, não no schema. Prisma, client e @prisma/adapter-mariadb estão alinhados em 7.10.1; o driver mariadb 3.5.4 atende MySQL/MariaDB. O banco oficial do Blog V2 passa a ser MySQL; o documento de arquitetura anterior descreve a decisão histórica PostgreSQL, substituída por esta etapa.
 
 O backend usa ESM (`type: module`, TypeScript NodeNext e imports locais com `.js`). O generator `prisma-client` gera TypeScript em `src/generated/prisma`, ignorado pelo Git e compilado junto com o backend. Execute generate antes do primeiro build/type-check. Não há geração automática no install do Prisma 7.
 
-Nenhuma migration, banco ou seed foi criado. Configurar a URL não cria tabelas: endpoints de dados exigem PostgreSQL com schema provisionado em uma futura etapa aprovada. Não executar migrations no MySQL legado.
+Nenhuma migration, banco ou seed foi criado. Configurar a URL não cria tabelas: endpoints de dados exigem MySQL com schema provisionado em uma futura etapa aprovada. Não executar migrations no MySQL legado.
 
 ## Endpoints
 
@@ -42,7 +42,7 @@ Todos os caminhos abaixo também usam o prefixo `/api/blog/v1`:
 | POST | /admin/posts/:id/publish | Sessão; publica, preservando primeira publishedAt |
 | POST | /admin/posts/:id/unpublish | Sessão; volta a DRAFT, preservando publishedAt |
 
-Paginação retorna `{ items, page, limit, total, totalPages }`. Defaults: page=1, limit=10; limit máximo 100 e page máximo 100000. Admin ordena por updatedAt/id desc. Busca case-insensitive em título/conteúdo. Consulta de itens/total usa snapshot RepeatableRead. Rascunhos nunca passam pelo filtro público, mesmo com publishedAt histórico.
+Paginação retorna `{ items, page, limit, total, totalPages }`. Defaults: page=1, limit=10; limit máximo 100 e page máximo 100000. Admin ordena por updatedAt/id desc. Busca em título/conteúdo, exigindo collation _ci no MySQL para preservar case-insensitivity. Consulta de itens/total usa snapshot RepeatableRead. Rascunhos nunca passam pelo filtro público, mesmo com publishedAt histórico.
 
 Criação exige title, slug e contentHtml. Slug explícito: 1–200 caracteres, letras minúsculas ASCII, números e hífens entre segmentos; unicidade garantida pelo banco (409 em conflito). Não há geração automática nem histórico de redirects nesta fase: alterar slug publicado pode quebrar links, portanto revisar antes de mudar. Campos opcionais: excerpt, categoryId, imageUrl, metaDescription. categoryId deve existir; null permite limpar campos opcionais no PATCH. imageUrl aceita apenas URL HTTP/HTTPS absoluta. Campos arbitrários, status, IDs/datas legadas no body são rejeitados com 400. Status muda apenas pelos endpoints próprios.
 
@@ -54,7 +54,7 @@ Token opaco de 32 bytes aleatórios; somente SHA-256 do token fica em AdminSessi
 
 Guard valida cookie e expiresAt no servidor em todos os endpoints admin, me e logout. Logout usa deleteMany, tolerando revogação concorrente; nova chamada com sessão já revogada/ausente retorna 401 pelo guard. O cliente pode tratar esse 401 como já desconectado. Sessões expiradas não autenticam e poderão ser removidas por manutenção futura; nenhum job foi adicionado. Nunca colocar sessão no localStorage.
 
-Depois de configurar um PostgreSQL de desenvolvimento/teste e aplicar a migration aprovada, execute explicitamente em terminal confiável:
+Depois de configurar um MySQL de desenvolvimento/teste e aplicar a migration aprovada, execute explicitamente em terminal confiável:
 
 ```sh
 npm run admin:create -- seu-username
@@ -64,22 +64,27 @@ O CLI pede senha e confirmação sem eco (12–1024 caracteres), não aceita sen
 
 ## Banco e primeira migration
 
-Não havia DATABASE_URL nem PostgreSQL de teste configurado durante esta implementação; nenhuma migration foi executada ou criada. Quando houver um banco PostgreSQL local/teste dedicado e confirmado (nunca o MySQL legado), configure a URL privada e execute manualmente `npx prisma migrate dev --name init`. Esse comando pode precisar de shadow database: valide as permissões e o destino antes de executá-lo. Revise o SQL gerado e teste restore antes de aprovar qualquer deploy. Não usar db push em produção.
+Não havia .env, DATABASE_URL ou diretório migrations configurado nesta adaptação. Nenhuma migration foi criada/executada; nenhum comando migrate, db push ou db pull foi executado. Não criar tabelas, admin ou conectar à Hostinger nesta etapa.
 
-Porta padrão 3001. Prisma conecta sob demanda na primeira consulta e desconecta no encerramento do Nest; health funciona mesmo sem DATABASE_URL. Não há mock ou fallback de dados. Sem banco, endpoints de dados não estão operacionais.
+Antes da futura conexão, obter do painel autorizado o host MySQL remoto, porta (normalmente 3306), banco, usuário e senha. Copiar .env.example para .env local ignorado pelo Git e substituir os placeholders da DATABASE_URL. Fazer URL encoding individual do usuário/senha, especialmente caracteres como @, :, /, #, %, ? e &; não codificar a URL inteira. Nunca publicar a URL, senha ou logs de conexão.
 
-## Scripts e limites
+DATABASE_URL é a única fonte de credenciais, tanto para CLI (prisma.config.ts preservado) quanto para runtime. PrismaMariaDb 7.10.1 aceita string e normaliza mysql:// para o driver MariaDB; a assinatura e implementação instaladas foram inspecionadas. Runtime acrescenta timezone=+00:00 via URLSearchParams para DATETIME em UTC, sem imprimir credenciais. Confirmar também timezone UTC do servidor/conexão CLI antes de usar defaults de data. Sem URL, construir o provider não conecta: o health permanece independente do banco.
 
-`dev` usa watch; `start` compila/inicia via Nest; `build` gera dist; `start:prod` executa dist/main.js; `type-check` valida TS; `prisma:validate` valida schema; `prisma:generate` gera o client local. Build/type-check pressupõem client gerado e não consultam banco.
+Confirmar na Hostinger: acesso remoto/IP permitido, versão MySQL, engine InnoDB, charset utf8mb4, limites de conexão e política TLS/certificados. Parâmetros TLS do driver e da CLI podem diferir; não presumir equivalência dos parâmetros de URL nem desabilitar validação de certificado. Configuração remota não foi verificada.
 
-Para validate/generate sem banco, pode-se definir DATABASE_URL fictícia apenas no ambiente do processo; esses comandos não conectam ao banco. Não persistir essa URL em .env.
+O banco PHP e suas tabelas permanecem independentes. Não reutilizar ou mapear tabelas antigas automaticamente. Preferir banco lógico exclusivo para V2; se for necessário compartilhar a instância/banco, aprovar primeiro nomes, permissões, colisões, backup/restore e plano de isolamento. Só planejar a primeira migration após revisão e autorização separada.
 
-`npm test` compila e executa os testes node:test com Prisma simulado, sem banco e sem seed. Cobrem senha/token, login/guard/cookies/logout, validação, rascunho, publicação, paginação/filtro público e erros. Testes reais de integração PostgreSQL (constraints, transações, concorrência e persistência) continuam pendentes. updatedAt obrigatório segue esta etapa; a futura importação deverá documentar a política para datas históricas desconhecidas.
+### Compatibilidade do schema
 
-## Bloqueadores antes de produção
+- Admin, AdminSession, Category, Post e PostStatus preservados. Enum DRAFT/PUBLISHED é suportado pelo conector MySQL.
+- UUIDs continuam gerados pelo Prisma, armazenados em CHAR(36); FKs usam o mesmo tipo.
+- DateTime passa de timestamptz(3) para DATETIME(3), que não armazena timezone. UTC passa a ser convenção explícita; nenhuma data real foi convertida.
+- Slugs únicos usam VARCHAR(200), compatível com o limite do DTO de Post. Username permanece VARCHAR(191) padrão (DTO limita a 100); tokenHash usa CHAR(64). A collation influencia igualdade/unicidade de strings, inclusive username: revisar esse efeito antes de conectar.
+- legacyId Int? @unique continua permitindo múltiplos NULL e impedindo IDs não nulos duplicados.
+- contentHtml usa LONGTEXT: TEXT do MySQL tem limite menor que TEXT do PostgreSQL e não comportaria todo o limite atual de 200 mil caracteres do DTO. Campos textuais não indexados também usam LONGTEXT para evitar truncamento pelo VARCHAR(191) padrão; limites de API não foram alterados.
+- Relações opcionais, Cascade de sessões e SetNull da categoria preservados. Índices de expiração e status/publishedAt/createdAt/id permanecem válidos no schema.
+- Busca usa contains sem mode, indisponível no client MySQL. É obrigatório configurar collation utf8mb4 case-insensitive (_ci) nas colunas pesquisadas para preservar a busca atual. Sensibilidade a acentos depende da collation escolhida e deve ser testada.
+- Constraints, collation, timezone, índices e limites de pacote do servidor ainda precisam de teste integrado em MySQL isolado. Validação Prisma não certifica a configuração da Hostinger.
 
-Não ativar o admin nem publicar conteúdo real em produção nesta etapa. **CSRF é obrigatório antes de ativar o admin em produção**, pois a autenticação usa cookie. SameSite=Lax não substitui essa proteção. Ainda faltam rate limiting (especialmente login), sanitização robusta de HTML, CSP/headers, upload seguro quando implementado e testes com PostgreSQL real. contentHtml é armazenado e retornado sem sanitização: não inserir conteúdo não confiável no DOM. CORS cross-origin/credentials não foi habilitado. Não há frontend, upload, likes, tags, OAuth ou migração do MySQL.
-
-Nest permanece em 11.2.8. O override exato de Multer 2.5.0 corrige a dependência transitiva 2.4.0 sem subir Nest para v12. Não há endpoint de upload nesta etapa; a futura implementação de uploads ainda exige testes multipart e limites próprios. Não usar audit fix --force para atualizar esta fundação.
-
-Validação em 24/10/2026: npm audit sem vulnerabilidades reportadas; deepmerge-ts 8.0.2 via @prisma/config 7.10.1. Validate/generate, type-check/build e health sem DATABASE_URL aprovados. Isso não substitui testes de integração com PostgreSQL provisionado, ainda não realizados.
+Referências: [Prisma MySQL/MariaDB](https://docs.prisma.io/docs/v7/prisma-orm/quickstart/mysql), [case sensitivity](https://docs.prisma.io/docs/orm/v6/prisma-client/queries/case-sensitivity).
+.

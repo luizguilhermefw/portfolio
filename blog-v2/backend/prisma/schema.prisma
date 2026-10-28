@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
 }
 
 enum PostStatus {
@@ -15,49 +15,49 @@ enum PostStatus {
 }
 
 model Admin {
-  id           String         @id @default(uuid()) @db.Uuid
+  id           String         @id @default(uuid()) @db.Char(36)
   legacyId     Int?           @unique
   username     String         @unique
-  passwordHash String
-  createdAt    DateTime       @default(now()) @db.Timestamptz(3)
+  passwordHash String @db.LongText
+  createdAt    DateTime       @default(now()) @db.DateTime(3)
   sessions     AdminSession[]
 }
 
 model AdminSession {
-  id        String   @id @default(uuid()) @db.Uuid
-  tokenHash String   @unique
-  adminId   String   @db.Uuid
-  expiresAt DateTime @db.Timestamptz(3)
-  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  id        String   @id @default(uuid()) @db.Char(36)
+  tokenHash String   @unique @db.Char(64)
+  adminId   String   @db.Char(36)
+  expiresAt DateTime @db.DateTime(3)
+  createdAt DateTime @default(now()) @db.DateTime(3)
   admin     Admin    @relation(fields: [adminId], references: [id], onDelete: Cascade)
 
   @@index([expiresAt])
 }
 
 model Category {
-  id        String   @id @default(uuid()) @db.Uuid
-  name      String
-  slug      String   @unique
-  createdAt DateTime @default(now()) @db.Timestamptz(3)
-  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  id        String   @id @default(uuid()) @db.Char(36)
+  name      String @db.LongText
+  slug      String   @unique @db.VarChar(200)
+  createdAt DateTime @default(now()) @db.DateTime(3)
+  updatedAt DateTime @updatedAt @db.DateTime(3)
   posts     Post[]
 }
 
 model Post {
-  id              String     @id @default(uuid()) @db.Uuid
+  id              String     @id @default(uuid()) @db.Char(36)
   legacyId        Int?       @unique
-  title           String
-  slug            String     @unique
-  contentHtml     String     @db.Text
-  excerpt         String?
-  legacyCategory  String?
-  categoryId      String?    @db.Uuid
-  imageUrl        String?
-  createdAt       DateTime   @default(now()) @db.Timestamptz(3)
-  updatedAt       DateTime   @updatedAt @db.Timestamptz(3)
-  publishedAt     DateTime?  @db.Timestamptz(3)
+  title           String @db.LongText
+  slug            String     @unique @db.VarChar(200)
+  contentHtml     String     @db.LongText
+  excerpt         String? @db.LongText
+  legacyCategory  String? @db.LongText
+  categoryId      String?    @db.Char(36)
+  imageUrl        String? @db.LongText
+  createdAt       DateTime   @default(now()) @db.DateTime(3)
+  updatedAt       DateTime   @updatedAt @db.DateTime(3)
+  publishedAt     DateTime?  @db.DateTime(3)
   status          PostStatus @default(DRAFT)
-  metaDescription String?
+  metaDescription String? @db.LongText
   category        Category?  @relation(fields: [categoryId], references: [id], onDelete: SetNull)
 
   @@index([status, publishedAt, createdAt, id])
