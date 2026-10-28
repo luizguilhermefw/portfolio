@@ -18,8 +18,10 @@ watch(() => route.fullPath, async () => { await nextTick(); document.querySelect
 <RouterView />
 </main>
   <footer class="site-footer container">
-<span>LFWeb Studio</span>
+<div class="site-footer__identity">
+<span class="site-footer__brand">LFWeb Studio</span>
 <p>Desenvolvimento, integrações e produtos digitais.</p>
+</div>
 <a href="/">Voltar ao portfólio ↗</a>
 </footer>
 </template>
