@@ -1,35 +1,51 @@
+<script setup lang="ts">
+import profileImage from '../../images/perfil-luiz.jpeg'
+</script>
+
 <template>
   <section id="sobre" class="about" aria-labelledby="about-title">
     <div class="about__container">
       <div class="about__layout">
         <header class="about__heading">
-          <p class="about__eyebrow">Sobre</p>
-          <h2 id="about-title">Da operação ao código.</h2>
-          <p>Entender o contexto faz parte da solução.</p>
+          <p class="about__eyebrow">Quem está por trás</p>
+          <h2 id="about-title">Entender o contexto faz parte da solução.</h2>
+          <p>Experiência técnica aplicada a problemas reais de negócio.</p>
         </header>
 
-        <div class="about__narrative">
-          <p class="about__lead">
-            Minha trajetória em tecnologia começou pela resolução de problemas reais de operação.
-            Atuando em suporte técnico e no atendimento de clientes de grande porte, desenvolvi uma visão
-            prática sobre sistemas, regras de negócio, integrações e o impacto das decisões técnicas no dia
-            a dia das empresas.
-          </p>
-          <p>
-            Em paralelo, transformei esse conhecimento em desenvolvimento de software, construindo
-            aplicações e produtos próprios com TypeScript, Node.js, NestJS, Vue e PostgreSQL.
-          </p>
-          <p>
-            Hoje busco unir esses dois lados: entender profundamente o problema e construir uma solução
-            tecnicamente consistente.
-          </p>
+        <div class="about__profile">
+          <figure class="about__portrait">
+            <img
+              :src="profileImage"
+              alt="Luiz Guilherme Fernandes Wagner"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+
+          <div class="about__narrative">
+            <p class="about__lead">
+              A LFWeb Studio é conduzida por Luiz Guilherme Fernandes Wagner, cuja trajetória em tecnologia
+              começou pela resolução de problemas reais de operação.
+              Atuando em suporte técnico e no atendimento de clientes de grande porte, desenvolvi uma visão
+              prática sobre sistemas, regras de negócio, integrações e o impacto das decisões técnicas no dia
+              a dia das empresas.
+            </p>
+            <p>
+              Em paralelo, transformei esse conhecimento em desenvolvimento de software, construindo
+              aplicações e produtos próprios com TypeScript, Node.js, NestJS, Vue e PostgreSQL.
+            </p>
+            <p>
+              Hoje, esse trabalho une entendimento do problema, visão de negócio e construção de soluções
+              tecnicamente consistentes.
+            </p>
+          </div>
         </div>
       </div>
 
       <ul class="about__focus" aria-label="Áreas de atuação técnica">
         <li>
           <span aria-hidden="true">01</span>
-          <strong>Full Stack / Backend</strong>
+          <strong>Automação comercial</strong>
         </li>
         <li>
           <span aria-hidden="true">02</span>
@@ -37,11 +53,11 @@
         </li>
         <li>
           <span aria-hidden="true">03</span>
-          <strong>SaaS &amp; Produtos</strong>
+          <strong>Atendimento e IA</strong>
         </li>
         <li>
           <span aria-hidden="true">04</span>
-          <strong>SQL &amp; PostgreSQL</strong>
+          <strong>Produtos e dashboards</strong>
         </li>
       </ul>
     </div>
@@ -84,6 +100,32 @@
 
 .about__heading {
   align-self: start;
+}
+
+.about__profile {
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.55fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+
+.about__portrait {
+  width: 100%;
+  max-width: 19rem;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgb(var(--color-primary-rgb) / 22%);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 0 3rem rgb(var(--color-primary-rgb) / 8%);
+  aspect-ratio: 4 / 3;
+}
+
+.about__portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .about__eyebrow {
@@ -195,6 +237,14 @@
 
   .about__layout {
     grid-template-columns: 1fr;
+  }
+
+  .about__profile {
+    grid-template-columns: 1fr;
+  }
+
+  .about__portrait {
+    max-width: 20rem;
   }
 
   .about__heading h2 {

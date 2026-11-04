@@ -8,27 +8,51 @@ export interface Solution {
 
 export const solutions: Solution[] = [
   {
-    id: 'integrations',
+    id: 'aylaflow',
     index: '01',
-    title: 'Integrações',
+    title: 'AylaFlow',
     description:
-      'Conexão entre o AylaFlow, sistemas de gestão, APIs e plataformas externas para fazer a informação circular pela operação.',
-    capabilities: ['REST APIs', 'ERP / CRM', 'E-commerce', 'Webhooks', 'Sincronização de dados'],
+      'Automação comercial e relacionamento com clientes para organizar a base, planejar campanhas e reativar oportunidades pelo WhatsApp.',
+    capabilities: ['Clientes', 'Segmentação', 'Campanhas', 'Reativação', 'WhatsApp'],
+  },
+  {
+    id: 'ai-service',
+    index: '02',
+    title: 'Atendimento com IA',
+    description:
+      'Desenvolvimento de soluções personalizadas de atendimento com inteligência artificial para WhatsApp, Instagram e sites.',
+    capabilities: ['WhatsApp', 'Instagram', 'Sites', 'Atendimento', 'Contexto'],
   },
   {
     id: 'automation',
-    index: '02',
-    title: 'Automação de processos',
+    index: '03',
+    title: 'Automações empresariais',
     description:
-      'Automação de rotinas que hoje dependem de atividades manuais ou repetitivas, com fluxos orientados ao processo real da empresa.',
-    capabilities: ['Processos', 'Fluxos', 'Dados', 'Comunicação', 'Gatilhos'],
+      'Automação de rotinas repetitivas e fluxos operacionais orientados ao processo real da empresa.',
+    capabilities: ['Processos', 'Fluxos', 'Dados', 'Gatilhos', 'Rotinas'],
   },
   {
-    id: 'ayla-evolution',
-    index: '03',
-    title: 'Implantação & Evolução Ayla',
+    id: 'integrations',
+    index: '04',
+    title: 'Integrações entre sistemas e APIs',
     description:
-      'Adequações e desenvolvimentos necessários para incorporar o AylaFlow à realidade de cada empresa e preparar sua operação para futuras evoluções do ecossistema Ayla.',
-    capabilities: ['AylaFlow', 'Integrações', 'Customizações', 'Implantação', 'Evolução'],
+      'Conexão entre sistemas de gestão, APIs, e-commerces e plataformas externas para fazer a informação circular pela operação.',
+    capabilities: ['REST APIs', 'ERP / CRM', 'E-commerce', 'Webhooks', 'Sincronização'],
+  },
+  {
+    id: 'dashboards',
+    index: '05',
+    title: 'Dashboards de indicadores',
+    description:
+      'Painéis personalizados para acompanhar resultados, desempenho, metas e evolução com informações mais claras para o negócio.',
+    capabilities: ['Indicadores', 'Metas', 'Filtros', 'Evolução', 'Exportações'],
+  },
+  {
+    id: 'websites',
+    index: '06',
+    title: 'Sites e landing pages',
+    description:
+      'Sites institucionais e landing pages para apresentar empresas, soluções e oportunidades de contato com clareza.',
+    capabilities: ['Institucional', 'Landing pages', 'Responsivo', 'SEO', 'Contato'],
   },
 ]

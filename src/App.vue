@@ -15,10 +15,10 @@ import ContactSection from './sections/ContactSection.vue'
   <AppHeader />
   <main>
     <HeroSection />
-    <ProjectsSection />
     <AylaFlowSection />
-    <TechnologiesSection />
     <ServicesSection />
+    <ProjectsSection />
+    <TechnologiesSection />
     <AboutSection />
     <ContactSection />
   </main>

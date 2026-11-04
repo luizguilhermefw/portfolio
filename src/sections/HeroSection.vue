@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import profileImage from '../../images/perfil-luiz.jpeg'
+import heroLogo from '../assets/branding/LOGO-LFWEBstudio.png'
 </script>
 
 <template>
@@ -8,35 +8,28 @@ import profileImage from '../../images/perfil-luiz.jpeg'
 
     <div class="hero__container">
       <div class="hero__content">
-        <p class="hero__eyebrow">Desenvolvimento de software <span>•</span> SaaS <span>•</span> Integrações</p>
+        <p class="hero__eyebrow">Automação comercial <span>•</span> IA <span>•</span> Integrações</p>
 
-        <p class="hero__name">Luiz Guilherme Fernandes Wagner</p>
-        <h1 id="hero-title">Full Stack <span>Developer</span></h1>
-        <p class="hero__expertise">Backend · APIs · SaaS · Integrações</p>
+        <p class="hero__name">LFWeb Studio</p>
+        <h1 id="hero-title">Tecnologia para fazer sua <span>operação avançar.</span></h1>
+        <p class="hero__expertise">AylaFlow · Atendimento com IA · Automações · Integrações</p>
 
         <p class="hero__description">
-          Construo aplicações web, APIs e produtos digitais com foco em arquitetura, integrações e
-          resolução de problemas reais.
+          Estruturo soluções para automatizar processos, atender clientes com inteligência artificial,
+          conectar sistemas e transformar dados em decisões mais claras.
         </p>
 
         <div class="hero__actions" aria-label="Ações principais">
-          <a class="button button--primary" href="#projetos">Ver projetos</a>
-          <a
-            class="button button--secondary"
-            href="https://github.com/luizguilhermefw"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-          <a class="button button--text" href="#contato">Entrar em contato</a>
+          <a class="button button--primary" href="#aylaflow">Conhecer o AylaFlow</a>
+          <a class="button button--secondary" href="#servicos">Ver soluções</a>
+          <a class="button button--text" href="#contato">Falar sobre meu cenário</a>
         </div>
       </div>
 
       <div class="hero__portrait">
         <img
-          :src="profileImage"
-          alt="Luiz Guilherme Fernandes Wagner"
+          :src="heroLogo"
+          alt="LFWeb Studio"
           width="1165"
           height="654"
           fetchpriority="high"
@@ -245,7 +238,7 @@ import profileImage from '../../images/perfil-luiz.jpeg'
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 

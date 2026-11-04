@@ -22,6 +22,7 @@ export interface Project {
   name: string
   category: string
   description: string
+  descriptionNosnippet?: boolean
   technologies: string[]
   technicalHighlights?: string[]
   securityHighlights?: string[]
@@ -73,6 +74,7 @@ export const projects: Project[] = [
     name: 'Hora do Livro',
     category: 'Plataforma de gestão e vendas para livrarias',
     description: 'Plataforma completa para operação de livraria, integrando e-commerce, retaguarda administrativa e PDV físico. A solução permite centralizar vendas, estoque, usuários e indicadores comerciais em um único ambiente.',
+    descriptionNosnippet: true,
     technologies: ['Vue 3', 'Firebase', 'Pinia', 'Vue Router', 'Google Authentication', 'Cloud Functions'],
     technicalHighlights: [
       'E-commerce para venda de livros',

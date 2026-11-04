@@ -8,7 +8,7 @@ import AylaFlowProductVisual from '../components/aylaflow/AylaFlowProductVisual.
     <div class="aylaflow__container">
       <div class="aylaflow__intro">
         <div class="aylaflow__copy">
-          <p class="aylaflow__eyebrow">Produto LFWeb Studio</p>
+          <p class="aylaflow__eyebrow">Produto próprio LFWeb Studio</p>
           <h2 id="aylaflow-title">AylaFlow</h2>
           <p class="aylaflow__headline">Transforme uma base parada em relacionamento contínuo.</p>
           <p class="aylaflow__description">

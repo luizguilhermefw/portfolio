@@ -4,7 +4,7 @@
       <div class="app-footer__identity">
         <strong>LFWeb <span>Studio</span></strong>
         <p>Luiz Guilherme Fernandes Wagner</p>
-        <p>Desenvolvimento, integrações e produtos digitais.</p>
+        <p>Automação comercial, IA, integrações e produtos digitais.</p>
       </div>
 
       <div class="app-footer__meta">

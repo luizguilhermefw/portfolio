@@ -3,18 +3,18 @@
     <div class="contact__container">
       <header class="contact__heading">
         <p class="contact__eyebrow">Contato</p>
-        <h2 id="contact-title">Vamos conversar.</h2>
+        <h2 id="contact-title">Vamos falar sobre sua operação.</h2>
         <p>
-          Seja para falar sobre uma oportunidade profissional, uma integração ou o AylaFlow, estou
-          aberto a boas conversas.
+          Tem um processo manual, uma operação que precisa ser conectada ou uma oportunidade de
+          relacionamento com clientes? Vamos conversar sobre o seu cenário.
         </p>
       </header>
 
       <div class="contact__paths">
         <nav class="contact__links" aria-label="Canais de contato">
-          <a href="mailto:ziulprof@gmail.com">
+          <a href="mailto:luiz.wagner@lfwebstudio.com.br">
             <span>E-mail</span>
-            <strong>ziulprof@gmail.com</strong>
+            <strong>luiz.wagner@lfwebstudio.com.br</strong>
             <i aria-hidden="true">↗</i>
           </a>
           <a

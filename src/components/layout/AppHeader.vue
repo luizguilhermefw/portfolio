@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import logoImage from '../../assets/branding/Logo-LFWeb.png'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 const navigationItems = [
@@ -6,7 +7,7 @@ const navigationItems = [
   { label: 'Projetos', href: '#projetos' },
   { label: 'AylaFlow', href: '#aylaflow' },
   { label: 'Tecnologias', href: '#tecnologias' },
-  { label: 'Serviços', href: '#servicos' },
+  { label: 'Soluções', href: '#servicos' },
   { label: 'Sobre', href: '#sobre' },
   { label: 'Contato', href: '#contato' },
 ]
@@ -37,8 +38,7 @@ onBeforeUnmount(() => document.removeEventListener('keydown', handleEscape))
   <header class="app-header">
     <div class="app-header__container">
       <a class="brand" href="#inicio" aria-label="LFWeb Studio — início" @click="closeMenu">
-        <span class="brand__name">LFWeb</span>
-        <span class="brand__suffix">Studio</span>
+        <img class="brand__logo" :src="logoImage" alt="LFWeb Studio" />
       </a>
 
       <button
@@ -96,18 +96,17 @@ onBeforeUnmount(() => document.removeEventListener('keydown', handleEscape))
 
 .brand {
   display: inline-flex;
-  align-items: baseline;
-  color: var(--color-text);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  width: min(12rem, 32vw);
+  align-items: center;
   text-decoration: none;
 }
 
-.brand__suffix {
-  margin-left: 0.3rem;
-  color: var(--color-primary);
-  font-weight: 500;
+.brand__logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 3rem;
+  object-fit: contain;
 }
 
 .navigation__list {

@@ -7,9 +7,9 @@ import { projects } from '../data/projects'
   <section id="projetos" class="projects" aria-labelledby="projects-title">
     <div class="projects__container">
       <header class="projects__heading">
-        <p class="projects__eyebrow">Trabalho selecionado</p>
-        <h2 id="projects-title">Projetos</h2>
-        <p>Produtos, aplicações e experiências construídas para resolver problemas reais.</p>
+        <p class="projects__eyebrow">Portfólio</p>
+        <h2 id="projects-title">Soluções em prática</h2>
+        <p>Produtos, aplicações e experiências desenvolvidos para resolver problemas reais de operação e comunicação.</p>
       </header>
 
       <div class="projects__grid">

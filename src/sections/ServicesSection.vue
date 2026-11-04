@@ -8,12 +8,12 @@ import { solutions } from '../data/solutions'
       <header class="services__heading">
         <p class="services__eyebrow">Soluções para a operação</p>
         <div class="services__title-group">
-          <h2 id="services-title">Soluções <span>&amp; Integrações</span></h2>
-          <p>Tecnologia conectada à operação.</p>
+          <h2 id="services-title">Soluções para <span>fazer acontecer.</span></h2>
+          <p>Relacionamento, atendimento e operação conectados.</p>
         </div>
         <p class="services__intro">
-          Além do AylaFlow, desenvolvo integrações e automações para conectar sistemas, reduzir
-          processos manuais e adaptar a solução à realidade de cada operação.
+          A LFWeb Studio combina produto próprio e desenvolvimento personalizado para ajudar empresas a
+          organizar relacionamentos, atender melhor, reduzir tarefas manuais e acompanhar seus resultados.
         </p>
       </header>
 
@@ -45,10 +45,10 @@ import { solutions } from '../data/solutions'
 
       <div class="services__cta">
         <div>
-          <p>Integração em contexto</p>
-          <h3>Tem um processo manual ou precisa conectar o AylaFlow à sua operação?</h3>
+          <p>Uma solução para o seu contexto</p>
+          <h3>Tem um processo manual, uma operação desconectada ou uma oportunidade de relacionamento?</h3>
         </div>
-        <a href="#contato">Conversar sobre uma integração</a>
+        <a href="#contato">Conversar sobre uma solução</a>
       </div>
     </div>
   </section>
