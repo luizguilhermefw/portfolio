@@ -12,7 +12,7 @@ export const solutions: Solution[] = [
     index: '01',
     title: 'AylaFlow',
     description:
-      'Automação comercial e relacionamento com clientes para organizar a base, planejar campanhas e reativar oportunidades pelo WhatsApp.',
+      'Solução própria de automação comercial que ajuda empresas a aproveitar sua base de clientes, automatizar campanhas de relacionamento e reativar clientes inativos, criando novas oportunidades de recompra.',
     capabilities: ['Clientes', 'Segmentação', 'Campanhas', 'Reativação', 'WhatsApp'],
   },
   {

@@ -8,8 +8,11 @@ import { projects } from '../data/projects'
     <div class="projects__container">
       <header class="projects__heading">
         <p class="projects__eyebrow">Portfólio</p>
-        <h2 id="projects-title">Soluções em prática</h2>
-        <p>Produtos, aplicações e experiências desenvolvidos para resolver problemas reais de operação e comunicação.</p>
+        <h2 id="projects-title">Portfólio de soluções</h2>
+        <p>
+          O portfólio complementa as soluções da LFWeb Studio com produtos, aplicações e experiências
+          desenvolvidos para resolver problemas reais de operação e comunicação.
+        </p>
       </header>
 
       <div class="projects__grid">

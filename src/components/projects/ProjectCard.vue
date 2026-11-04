@@ -41,11 +41,10 @@ const demoModal = ref<InstanceType<typeof ProjectDemoModal> | null>(null)
         <h3>{{ project.name }}</h3>
       </div>
 
-      <p
-        class="project-card__description"
-        :data-nosnippet="project.descriptionNosnippet ? '' : undefined"
-      >
-        {{ project.description }}
+      <p class="project-card__description">
+        <span :data-nosnippet="project.descriptionNosnippet ? '' : undefined">
+          {{ project.description }}
+        </span>
       </p>
 
       <div class="project-card__links">

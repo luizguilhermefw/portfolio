@@ -8,12 +8,13 @@ import { solutions } from '../data/solutions'
       <header class="services__heading">
         <p class="services__eyebrow">Soluções para a operação</p>
         <div class="services__title-group">
-          <h2 id="services-title">Soluções para <span>fazer acontecer.</span></h2>
+          <h2 id="services-title">Tecnologia que conecta, automatiza e <span>gera oportunidades.</span></h2>
           <p>Relacionamento, atendimento e operação conectados.</p>
         </div>
         <p class="services__intro">
-          A LFWeb Studio combina produto próprio e desenvolvimento personalizado para ajudar empresas a
-          organizar relacionamentos, atender melhor, reduzir tarefas manuais e acompanhar seus resultados.
+          A LFWeb Studio combina o AylaFlow e desenvolvimento personalizado para apoiar empresas em
+          automação comercial, atendimento com IA, automação de processos, integrações entre sistemas e
+          dashboards de indicadores.
         </p>
       </header>
 

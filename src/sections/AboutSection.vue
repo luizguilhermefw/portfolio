@@ -26,12 +26,12 @@ import profileImage from '../../images/perfil-luiz.jpeg'
             <p class="about__lead">
               A LFWeb Studio é conduzida por Luiz Guilherme Fernandes Wagner, cuja trajetória em tecnologia
               começou pela resolução de problemas reais de operação.
-              Atuando em suporte técnico e no atendimento de clientes de grande porte, desenvolvi uma visão
-              prática sobre sistemas, regras de negócio, integrações e o impacto das decisões técnicas no dia
-              a dia das empresas.
+              Sua atuação em suporte técnico e no atendimento de clientes de grande porte desenvolveu uma
+              visão prática sobre sistemas, regras de negócio, integrações e o impacto das decisões técnicas
+              no dia a dia das empresas.
             </p>
             <p>
-              Em paralelo, transformei esse conhecimento em desenvolvimento de software, construindo
+              Em paralelo, Luiz transformou esse conhecimento em desenvolvimento de software, construindo
               aplicações e produtos próprios com TypeScript, Node.js, NestJS, Vue e PostgreSQL.
             </p>
             <p>
